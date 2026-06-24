@@ -39,8 +39,8 @@ ul { margin: 0; padding: 0; list-style: none; }
   --space-5: 3rem;
   --space-6: 4.5rem;
   --section-pad: clamp(3.5rem, 8vw, 6.5rem);
-  --container-w: 1180px;
-  --container-pad: clamp(1.25rem, 5vw, 4rem);
+  --container-w: 1440px;
+  --container-pad: clamp(1rem, 3vw, 2.5rem);
 }
 
 /* ---------- Base ---------- */
@@ -539,8 +539,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 @media (max-width: 700px) { .image-grid { grid-template-columns: 1fr; } }
 
 /* ---------- Reveal animation ---------- */
-.reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+.reveal { opacity: 0; transform: translateY(40px); transition: opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1); }
 .reveal.is-visible { opacity: 1; transform: translateY(0); }
+.image-stack img { opacity: 0; transform: translateY(30px); transition: opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1); }
+.image-stack img.is-visible { opacity: 1; transform: translateY(0); }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

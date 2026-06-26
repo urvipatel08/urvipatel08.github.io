@@ -553,3 +553,35 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 /* ---------- Single column image stack ---------- */
 .image-stack { display: flex; flex-direction: column; gap: 6px; margin-top: var(--space-3); }
 .image-stack img { width: 100%; height: auto; display: block; }
+
+/* ---------- Page-specific accent colors ---------- */
+.page-ud .sheet-tag,
+.page-ud .sheet-header h3,
+.page-ud .eyebrow,
+.page-ud .page-header h1 { color: #B07878; }
+
+.page-arch .sheet-tag,
+.page-arch .sheet-header h3,
+.page-arch .eyebrow,
+.page-arch .page-header h1 { color: #8B6347; }
+
+/* ---------- Full-bleed images on project pages ---------- */
+.page-ud .sheet,
+.page-arch .sheet {
+  padding-inline: 0;
+  overflow: hidden;
+}
+.page-ud .sheet-header,
+.page-arch .sheet-header {
+  padding-inline: 1.4em;
+}
+.page-ud .sheet-credits,
+.page-arch .sheet-credits {
+  padding-inline: 1.4em;
+}
+.page-ud .image-stack,
+.page-arch .image-stack {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  gap: 2px;
+}

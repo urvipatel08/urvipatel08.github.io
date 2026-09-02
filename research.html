@@ -4,58 +4,82 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Research — Urvi Patel</title>
-<meta name="description" content="Academic research by Urvi Patel on urban mobility, street design, and the future of human-centred cities.">
+<meta name="description" content="Academic research and writing by Urvi Patel on urban mobility, street design, and the future of human-centred cities.">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23FAF9F6'/%3E%3Cpath d='M16 4v24M4 16h24' stroke='%231B48C4' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='6' fill='none' stroke='%2316191D' stroke-width='1.5'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <style>
-  .research-hero {
-    background: var(--ink);
-    color: var(--paper);
-    padding: clamp(3rem,7vw,6rem) 0 clamp(2.5rem,5vw,4rem);
-  }
-  .research-hero .eyebrow { color: var(--accent); }
-  .research-hero h1 { color: #fff; font-size: clamp(1.8rem,4vw,3.2rem); line-height:1.08; margin:.6rem 0 1.2rem; max-width:18ch; }
-  .research-hero .course-tag { font-family:var(--font-mono); font-size:.75rem; color:rgba(255,255,255,.55); letter-spacing:.1em; text-transform:uppercase; }
-  .thesis-block { background: var(--accent); color:#fff; padding: clamp(2rem,4vw,3rem); margin: var(--space-5) 0; }
-  .thesis-block .label { font-family:var(--font-mono); font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; opacity:.7; margin-bottom:.8rem; }
-  .thesis-block p { font-family:var(--font-display); font-size:clamp(1.1rem,2.2vw,1.5rem); font-weight:700; line-height:1.35; margin:0; }
-  .arguments-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin: var(--space-5) 0; }
-  @media(max-width:760px){ .arguments-grid { grid-template-columns:1fr; } }
-  .argument-card { border:1px solid var(--line); padding:1.8rem; }
-  .argument-card .arg-num { font-family:var(--font-mono); font-size:.7rem; color:var(--accent); letter-spacing:.1em; text-transform:uppercase; margin-bottom:.8rem; display:block; }
-  .argument-card h3 { font-size:1.1rem; font-weight:800; margin:0 0 .8rem; }
-  .argument-card p { font-size:.9rem; color:var(--ink-muted); margin:0; line-height:1.6; }
-  .stat-highlight { font-family:var(--font-display); font-size:2rem; font-weight:900; color:var(--accent); display:block; margin:.6rem 0 .2rem; }
-  .stat-label { font-family:var(--font-mono); font-size:.7rem; color:var(--ink-muted); text-transform:uppercase; letter-spacing:.06em; }
-  .section-label { font-family:var(--font-mono); font-size:.75rem; letter-spacing:.12em; text-transform:uppercase; color:var(--accent); margin-bottom:var(--space-3); display:block; border-top:2px solid var(--accent); padding-top:.8rem; }
-  .cases-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin:var(--space-4) 0; }
-  @media(max-width:900px){ .cases-grid { grid-template-columns:repeat(2,1fr); } }
-  @media(max-width:600px){ .cases-grid { grid-template-columns:1fr; } }
-  .case-card { background:var(--surface); border:1px solid var(--line); padding:1.5rem; }
-  .case-card .city { font-family:var(--font-display); font-weight:800; font-size:1.05rem; margin:0 0 .4rem; }
-  .case-card .country { font-family:var(--font-mono); font-size:.68rem; color:var(--ink-muted); text-transform:uppercase; letter-spacing:.08em; display:block; margin-bottom:.8rem; }
-  .case-card p { font-size:.87rem; color:var(--ink-muted); margin:0; line-height:1.55; }
-  .case-card .outcome { font-family:var(--font-mono); font-size:.7rem; color:var(--accent); margin-top:.8rem; display:block; }
-  .pullquote { border-left:3px solid var(--accent); padding: 1.5rem 2rem; margin: var(--space-4) 0; background:var(--surface); }
-  .pullquote blockquote { font-family:var(--font-display); font-size:clamp(1rem,1.8vw,1.3rem); font-weight:700; font-style:italic; margin:0 0 .6rem; line-height:1.4; color:var(--ink); }
-  .pullquote cite { font-family:var(--font-mono); font-size:.72rem; color:var(--ink-muted); text-transform:uppercase; letter-spacing:.06em; }
-  .bibliography { border-top:1px solid var(--line); padding-top:var(--space-4); margin-top:var(--space-6); }
-  .bibliography h3 { font-size:1rem; margin-bottom:1.2rem; }
-  .bibliography ol { padding-left:1.4em; }
-  .bibliography li { font-size:.82rem; color:var(--ink-muted); margin-bottom:.6rem; line-height:1.5; }
-  .bibliography li a { color:var(--accent); word-break:break-all; }
-  .image-credits { border-top:1px solid var(--line); padding-top:var(--space-3); margin-top:var(--space-4); }
-  .image-credits h4 { font-family:var(--font-mono); font-size:.72rem; text-transform:uppercase; letter-spacing:.08em; margin-bottom:.8rem; }
-  .image-credits ul { list-style:none; padding:0; }
-  .image-credits li { font-size:.78rem; color:var(--ink-muted); margin-bottom:.4rem; }
-  .image-credits li a { color:var(--accent); }
-  .stats-row { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin:var(--space-4) 0; }
-  @media(max-width:600px){ .stats-row { grid-template-columns:1fr; } }
-  .stat-box { background:var(--surface); padding:1.6rem; text-align:center; }
-  .coming-soon { border:1px dashed var(--line); padding:2rem; text-align:center; color:var(--ink-muted); font-family:var(--font-mono); font-size:.8rem; margin-top:var(--space-5); }
+.research-card {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 0;
+  border: 1px solid var(--line);
+  margin-bottom: var(--space-5);
+  background: var(--surface);
+  transition: border-color .2s;
+}
+.research-card:hover { border-color: var(--accent); }
+@media(max-width:760px){ .research-card { grid-template-columns: 1fr; } }
+.research-card-thumb {
+  overflow: hidden;
+  background: var(--accent-tint);
+}
+.research-card-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  min-height: 280px;
+}
+.research-card-body {
+  padding: 2.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.research-card-body .course-tag {
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--accent);
+}
+.research-card-body h2 {
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin: 0;
+}
+.research-card-body p {
+  font-size: .93rem;
+  color: var(--ink-muted);
+  line-height: 1.65;
+  margin: 0;
+  flex: 1;
+}
+.research-card-body .keywords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+}
+.research-card-body .kw {
+  font-family: var(--font-mono);
+  font-size: .68rem;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  border: 1px solid var(--line);
+  padding: .2em .6em;
+  color: var(--ink-muted);
+}
+.coming-soon-card {
+  border: 1px dashed var(--line);
+  padding: 3rem;
+  text-align: center;
+  color: var(--ink-muted);
+}
+.coming-soon-card p { font-family: var(--font-mono); font-size: .8rem; margin: 0; }
 </style>
 </head>
 <body>
@@ -77,180 +101,37 @@
   </div>
 </header>
 
-<!-- Research hero -->
-<section class="research-hero">
-  <div class="container">
-    <span class="eyebrow">Research &amp; Writing</span>
-    <p class="course-tag" style="margin:.8rem 0 .4rem;">MUD 602 — History of Urban Design · Thomas Jefferson University · 2025</p>
-    <h1>Mobility for Life: From Car-Centric to Human-Centric Streets</h1>
-    <p style="color:rgba(255,255,255,.7);max-width:52ch;font-size:1.05rem;line-height:1.65;">Streets are the first and most important — yet most underrated — public spaces in urban development. For too long they have been designed as corridors of speed rather than corridors of life.</p>
-  </div>
-</section>
+<div class="container page-header">
+  <span class="eyebrow">Research &amp; Writing</span>
+  <h1>Research</h1>
+  <p>Academic writing exploring the intersection of urban design, mobility, equity, and the future of cities.</p>
+</div>
 
 <div class="container">
 
-  <!-- Thesis -->
-  <div class="thesis-block reveal">
-    <p class="label">Central Argument</p>
-    <p>Future cities must transform streets from simple connectors between two destinations to the destination itself. It is not about banning cars — it is about giving the choice back to humans, measuring distance not in miles per hour but in moments per block.</p>
-  </div>
+  <!-- Paper 1 -->
+  <a href="research-mobility.html" class="research-card reveal" style="text-decoration:none;color:inherit;">
+    <div class="research-card-thumb">
+      <img src="assets/research/mobility-p-01.jpg" alt="Mobility for Life research paper cover page">
+    </div>
+    <div class="research-card-body">
+      <span class="course-tag">MUD 602 — History of Urban Design · TJU · 2025</span>
+      <h2>Mobility for Life: From Car-Centric to Human-Centric Streets</h2>
+      <p>Streets are the most significant yet most overlooked public spaces in cities. This paper argues that future cities must transform streets from simple connectors between destinations to the destination itself — addressing the economic, design, and environmental crises created by car-centric planning through a framework of human-centred urban mobility.</p>
+      <div class="keywords">
+        <span class="kw">Mobility</span>
+        <span class="kw">Street Design</span>
+        <span class="kw">Car Dependency</span>
+        <span class="kw">Human-Centred Planning</span>
+        <span class="kw">Public Space</span>
+      </div>
+      <a href="research-mobility.html" class="btn btn-primary" style="align-self:flex-start;margin-top:.4rem;">Read Paper</a>
+    </div>
+  </a>
 
-  <!-- Three arguments -->
-  <span class="section-label reveal">Three Intertwined Problems</span>
-  <div class="arguments-grid">
-    <div class="argument-card reveal">
-      <span class="arg-num">01 — Economic</span>
-      <h3>The Economic Pressure That Forces Car Dependency</h3>
-      <p>Car dependency is not a personal preference — it is the result of policy, geometry, and economics that remove any other viable choice. Transportation planning optimized for "rush hours" ignores shift workers, caregivers, youth, elders, and low-income families who travel outside those windows.</p>
-      <span class="stat-highlight">$9,000–12,000</span>
-      <span class="stat-label">Annual cost of car ownership (AAA) — higher than rent in many US cities. Gorz calls this "auto-obligatory mobility": movement performed out of obligation, not freedom.</span>
-    </div>
-    <div class="argument-card reveal">
-      <span class="arg-num">02 — Design</span>
-      <h3>The Necessity to Prioritise Human Comfort and Choice</h3>
-      <p>A human-centred city designs for 5 km/h — the pace of walking. At 50 km/h nothing exists; at slower speeds people notice details, interact, and participate in public life. Short blocks, narrow lanes, clear crossings, seating, and active edges are not ornaments: they shape human behaviour.</p>
-      <span class="stat-highlight">5 km/h</span>
-      <span class="stat-label">Jan Gehl's design speed for human-centred cities. Safety becomes organic when streets are active and mixed — "Eyes on the Street" (Jacobs), not enforcement.</span>
-    </div>
-    <div class="argument-card reveal">
-      <span class="arg-num">03 — Environment</span>
-      <h3>The Environmental and Health Harm of Auto-Centric Mobility</h3>
-      <p>Car-centric cities generate crises far beyond emissions. Noise pollution causes stress, hypertension, and sleep disruption. PM2.5 particulate matter from traffic exceeds WHO guidelines in residential streets near heavy corridors, increasing asthma and cognitive impairment in children.</p>
-      <span class="stat-highlight">20–30°F</span>
-      <span class="stat-label">Hotter: asphalt-covered streets versus shaded streets. Vehicle waste heat accounts for up to 30% of anthropogenic heat emissions in cities — the second-largest source after buildings.</span>
-    </div>
-  </div>
-
-  <!-- Key statistics -->
-  <div class="stats-row reveal">
-    <div class="stat-box">
-      <span class="stat-highlight">40%</span>
-      <span class="stat-label">Fewer pedestrian injuries after Times Square, NYC was redesigned as a pedestrian plaza</span>
-    </div>
-    <div class="stat-box">
-      <span class="stat-highlight">93%</span>
-      <span class="stat-label">Of visitors agree Times Square is now a more pleasant place — 40 million people pass through annually</span>
-    </div>
-    <div class="stat-box">
-      <span class="stat-highlight">1/3</span>
-      <span class="stat-label">Of land in some cities dedicated to storing empty cars — Phoenix and Houston give more land to parking than to housing</span>
-    </div>
-  </div>
-
-  <!-- Pull quotes -->
-  <div class="pullquote reveal">
-    <blockquote>"People naturally walk when the distances are short, the routes are interesting, and the environment feels safe."</blockquote>
-    <cite>Jan Gehl — Cities for People (2010)</cite>
-  </div>
-
-  <!-- Case Studies -->
-  <span class="section-label reveal">Global Case Studies</span>
-  <div class="cases-grid">
-    <div class="case-card reveal">
-      <span class="city">Groningen</span>
-      <span class="country">Netherlands</span>
-      <p>Reorganised the city centre into four traffic cells that allow cars to enter but not pass through. Walking, cycling, and transit became easier and more convenient. Traffic evaporated — not because people abandoned cars, but because the street system no longer rewarded driving.</p>
-      <span class="outcome">Result — Car dependency is designed, and it can be redesigned.</span>
-    </div>
-    <div class="case-card reveal">
-      <span class="city">Copenhagen</span>
-      <span class="country">Denmark</span>
-      <p>Wasn't always walkable — in the 1960s it was congested and car-heavy. Through decades of systematic design — protected lanes, slow intersections, and unified networks — the city built a culture of everyday cycling not through moral persuasion but through infrastructure.</p>
-      <span class="outcome">Result — Design creates culture, not the other way around.</span>
-    </div>
-    <div class="case-card reveal">
-      <span class="city">Paris</span>
-      <span class="country">France</span>
-      <p>The 15-minute city model ensures that everyday needs — work, school, groceries, parks — are accessible within 15 minutes by foot or bicycle. School streets, car-free zones, and repurposed parking have transformed a car-oriented capital into a model of comfort and walkability.</p>
-      <span class="outcome">Result — When everyday needs are close, car dependence naturally shrinks.</span>
-    </div>
-    <div class="case-card reveal">
-      <span class="city">Barcelona</span>
-      <span class="country">Spain</span>
-      <p>Superblocks cluster city blocks into larger units and restrict through-traffic, reclaiming interior streets as public space for pedestrians and cyclists. The intervention demonstrates that human-scale design can create calm, liveable neighbourhoods within an existing urban grid.</p>
-      <span class="outcome">Result — Infrastructure at block scale changes neighbourhoods at city scale.</span>
-    </div>
-    <div class="case-card reveal">
-      <span class="city">Seoul</span>
-      <span class="country">South Korea</span>
-      <p>Removed the Cheonggye Expressway — an elevated urban highway — and restored the buried Cheonggyecheon stream beneath it. The transformation created a 5.8 km linear park through the heart of the city, demonstrating that infrastructure removal can generate public space and ecological restoration simultaneously.</p>
-      <span class="outcome">Result — Dismantling car infrastructure can restore both nature and public life.</span>
-    </div>
-    <div class="case-card reveal">
-      <span class="city">Bogotá</span>
-      <span class="country">Colombia</span>
-      <p>The Ciclovía opens 76 miles of streets to cyclists, pedestrians, and community activity every Sunday. Begun in 1974, it has become a weekly institution proving that when people are given space, they give life back. Cities from Los Angeles to Jakarta have adopted variations of the model.</p>
-      <span class="outcome">"When you give people space, they give life back."</span>
-    </div>
-  </div>
-
-  <!-- Second pull quote -->
-  <div class="pullquote reveal">
-    <blockquote>"We redesigned cities for the scale of the car, not for the scale of the human. If streets fail, the city fails."</blockquote>
-    <cite>Jan Gehl</cite>
-  </div>
-
-  <!-- Key voices -->
-  <span class="section-label reveal">Key Theoretical Voices</span>
-  <div class="arguments-grid" style="margin-top:0;">
-    <div class="argument-card reveal">
-      <span class="arg-num">Jan Gehl</span>
-      <h3>Cities for People</h3>
-      <p>Argues for designing at the human scale — 5 km/h, not 50 km/h. His framework establishes that walkability is not a luxury but a basic human need: short distances, interesting routes, safe environments. His observations form the foundation of the human-centred streets movement.</p>
-    </div>
-    <div class="argument-card reveal">
-      <span class="arg-num">Jane Jacobs</span>
-      <h3>The Death and Life of Great American Cities</h3>
-      <p>Established that street safety comes from life, not enforcement. Her concept of "Eyes on the Street" argues that mixed-use, active, and engaged streets generate organic safety — as opposed to the isolated, single-use corridors that modernist planning produced.</p>
-    </div>
-    <div class="argument-card reveal">
-      <span class="arg-num">André Gorz</span>
-      <h3>The "Car-ocracy"</h3>
-      <p>Named the political economy of car dominance: a city shaped around the private vehicle in which zoning, traffic engineering, and road design transformed streets into channels of speed. His concept of "auto-obligatory mobility" describes movement performed out of obligation — not freedom — when no other option exists.</p>
-    </div>
-  </div>
-
-  <!-- Conclusion -->
-  <div class="thesis-block reveal" style="background:var(--ink);">
-    <p class="label">Conclusion</p>
-    <p>This is not just about technology, eliminating cars, or design strategy. It is a cultural shift, a political stance, and an ethical responsibility. When we design for people first, behaviour shifts naturally — streets become calmer, safer, and more economically resilient. The future city is not car-free; it is human-first.</p>
-  </div>
-
-  <!-- Bibliography -->
-  <div class="bibliography reveal">
-    <h3>Bibliography</h3>
-    <ol>
-      <li>Gehl, Jan. 2010. <em>Cities for People.</em> Washington, DC: Island Press.</li>
-      <li>Jacobs, Jane. 1961. <em>The Death and Life of Great American Cities.</em> New York: Random House.</li>
-      <li>Sim, David, and Jan Gehl. 2019. <em>Soft City: Building Density for Everyday Life.</em> Washington; Covelo; London: Island Press.</li>
-      <li>Bruntlett, Chris, and Melissa Bruntlett. 2021. <em>Curbing Traffic: The Human Case for Fewer Cars in Our Lives.</em> Washington: Island Press.</li>
-      <li>Goodyear, Sarah, Doug Gordon, and Aaron Naparstek. 2025. <em>Life after Cars.</em> Penguin Group.</li>
-      <li>Global Designing Cities Initiative. 2015. "Global Street Design Guide." <a href="https://globaldesigningcities.org/publication/global-street-design-guide/" target="_blank" rel="noopener">globaldesigningcities.org</a></li>
-      <li>UN-Habitat. "Mobility and Transport." <a href="https://unhabitat.org/topic/mobility-and-transport" target="_blank" rel="noopener">unhabitat.org</a></li>
-      <li>NACTO. 2015. "Urban Street Design Guide." <a href="https://nacto.org/publication/urban-street-design-guide/" target="_blank" rel="noopener">nacto.org</a></li>
-      <li>Ros-McDonnell, Diego et al. 2024. "Toward Resilient Urban Design: Pedestrians as an Important Element of City Design." <em>Urban Science.</em> <a href="https://www.mdpi.com/2413-8851/8/2/65" target="_blank" rel="noopener">mdpi.com</a></li>
-      <li>Brown, Barbara B. et al. 2016. "A Complete Street Intervention for Walking to Transit, Non-transit Walking, and Bicycling." <em>Journal of Physical Activity and Health.</em> <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5497517/" target="_blank" rel="noopener">pmc.ncbi.nlm.nih.gov</a></li>
-      <li>Institute for Transportation and Development Policy. 2024. "The High Cost of Transportation in the United States." <a href="https://itdp.org/2024/01/24/high-cost-transportation-united-states/" target="_blank" rel="noopener">itdp.org</a></li>
-      <li>VCÖ — Mobility with Future. "How Traffic Increases Urban Heat Stress." <a href="https://vcoe.at/publikationen/vcoe-factsheets/detail/how-traffic-increases-urban-heat-stress" target="_blank" rel="noopener">vcoe.at</a></li>
-    </ol>
-  </div>
-
-  <!-- Image credits -->
-  <div class="image-credits reveal">
-    <h4>Image Credits (Original Research Paper)</h4>
-    <ul>
-      <li>Fig. 1 — Pre-automobile street as shared public space: D, Lina. 2015. "33 Historical Photos of Kids." <a href="https://www.boredpanda.com/children-old-photos-vintage/" target="_blank" rel="noopener">boredpanda.com</a></li>
-      <li>Fig. 2 — Car-dominated arterial: Shutterstock / Los Angeles aerial. <a href="https://www.shutterstock.com" target="_blank" rel="noopener">shutterstock.com</a></li>
-      <li>Fig. 3 — Groningen circulation plan: Urban Access Regulations. 2022. <a href="https://urbanaccessregulations.eu/countries-mainmenu-147/netherlands-mainmenu-88/groningen-carfree" target="_blank" rel="noopener">urbanaccessregulations.eu</a></li>
-      <li>Fig. 4 — Human-centred street, Copenhagen: Strong Towns. 2019. <a href="https://archive.strongtowns.org/journal/2019/8/16/copenhagen-more-than-bike-lanes" target="_blank" rel="noopener">strongtowns.org</a></li>
-      <li>Fig. 5 — Environmental impacts of EVs: Nodak Angler. 2022. <a href="https://nodakangler.com/forums/threads/is-it-immoral-to-drive-an-electric-vehicle.15416/" target="_blank" rel="noopener">nodakangler.com</a></li>
-      <li>Fig. 6 — Cheonggyecheon River, Seoul: Regenerative Design World. 2022. <a href="https://regenerativedesign.world/cheonggyecheon-river-restoration/" target="_blank" rel="noopener">regenerativedesign.world</a></li>
-    </ul>
-  </div>
-
-  <!-- Placeholder for more papers -->
-  <div class="coming-soon reveal">
-    More research papers coming soon
+  <!-- Placeholder -->
+  <div class="coming-soon-card reveal">
+    <p>More research papers coming soon</p>
   </div>
 
 </div>
@@ -266,7 +147,7 @@
   <div class="container footer-grid">
     <div class="footer-col">
       <p class="footer-name">URVI PATEL</p>
-      <p class="footer-tagline">Urban Designer · Researcher · Architect<br>Philadelphia, PA</p>
+      <p class="footer-tagline">Urban Designer · GIS Analyst · Architect<br>Philadelphia, PA</p>
     </div>
     <div class="footer-col">
       <p class="footer-heading">Index</p>

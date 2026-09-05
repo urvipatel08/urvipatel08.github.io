@@ -11,7 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <style>
-.paper-hero{background:var(--ink);color:var(--paper);padding:clamp(3rem,7vw,6rem) 0;}
+.paper-hero{background:var(--accent-dark);color:var(--paper);padding:clamp(3rem,7vw,6rem) 0;}
 .paper-hero .eyebrow{color:var(--accent);}
 .paper-hero h1{color:#fff;font-size:clamp(1.8rem,4vw,3.2rem);line-height:1.08;margin:.6rem 0 1rem;max-width:22ch;}
 .paper-hero .meta{font-family:var(--font-mono);font-size:.72rem;color:rgba(255,255,255,.5);letter-spacing:.08em;text-transform:uppercase;}
@@ -28,21 +28,17 @@
 .stat-callout{background:var(--accent);color:#fff;padding:1.6rem 2rem;margin:var(--space-4) 0;display:flex;align-items:center;gap:1.5rem;}
 .stat-callout .number{font-family:var(--font-display);font-size:2.8rem;font-weight:900;line-height:1;flex-shrink:0;}
 .stat-callout .text{font-size:.92rem;line-height:1.5;opacity:.9;}
-.article-figure{margin:var(--space-4) calc(-1 * var(--container-pad));position:relative;}
+.article-figure{margin:var(--space-4) 0;position:relative;border:1px solid var(--line);background:var(--surface);}
 .article-figure img{width:100%;height:auto;display:block;}
-.article-figure figcaption{padding:.7rem var(--container-pad);font-family:var(--font-mono);font-size:.72rem;color:var(--ink-muted);border-bottom:1px solid var(--line);background:var(--surface);}
+.article-figure figcaption{padding:.7rem 1rem;font-family:var(--font-mono);font-size:.72rem;color:var(--ink-muted);background:var(--surface);border-top:1px solid var(--line);}
 .article-figure figcaption a{color:var(--accent);}
-.article-figure-inline{margin:var(--space-3) 0;}
-.article-figure-inline img{width:100%;max-height:420px;object-fit:cover;display:block;}
-.article-figure-inline figcaption{padding:.6rem 0;font-family:var(--font-mono);font-size:.7rem;color:var(--ink-muted);border-bottom:1px solid var(--line);}
-.article-figure-inline figcaption a{color:var(--accent);}
 .case-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:var(--space-3) 0;}
 @media(max-width:600px){.case-row{grid-template-columns:1fr;}}
 .case-pill{border:1px solid var(--line);padding:1.2rem;background:var(--surface);}
 .case-pill .city{font-family:var(--font-display);font-weight:800;font-size:1rem;margin:0 0 .2rem;}
 .case-pill .country{font-family:var(--font-mono);font-size:.65rem;color:var(--ink-muted);text-transform:uppercase;letter-spacing:.07em;display:block;margin-bottom:.7rem;}
 .case-pill p{font-size:.85rem!important;margin:0!important;line-height:1.55!important;color:var(--ink-muted)!important;}
-.thesis-box{background:var(--ink);color:#fff;padding:2rem 2.4rem;margin:var(--space-4) 0;}
+.thesis-box{background:var(--accent-dark);color:#fff;padding:2rem 2.4rem;margin:var(--space-4) 0;}
 .thesis-box .label{font-family:var(--font-mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;opacity:.5;margin-bottom:.8rem;}
 .thesis-box p{font-family:var(--font-display);font-size:1.2rem!important;font-weight:700;line-height:1.4!important;color:#fff!important;margin:0!important;}
 .bibliography{border-top:1px solid var(--line);padding-top:var(--space-4);margin-top:var(--space-5);}
@@ -66,9 +62,6 @@
       <a href="index.html" class="nav-link">Home</a>
       <a href="urban-design.html" class="nav-link">Urban Design</a>
       <a href="architecture.html" class="nav-link">Architecture</a>
-      <a href="research.html" class="nav-link active">Research</a>
-      <a href="about.html" class="nav-link">About</a>
-      <a href="contact.html" class="nav-link">Contact</a>
     </nav>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -123,7 +116,7 @@
 
   <p>Parking infrastructure worsens all these problems. Some cities like Phoenix and Houston give more land to parking than they allocate for housing or any other public spaces. This leads to higher rents, disconnected neighbourhoods, heat islands, and unwalkable areas. Reducing this dependency on cars and giving people their choices back is not just about mobility but also about economic justice.</p>
 
-  <figure class="article-figure-inline">
+  <figure class="article-figure">
     <img src="assets/research/fig-3-groningen.jpg" alt="Groningen's circulation plan showing the four-cell traffic reorganisation">
     <figcaption>Figure 3. Groningen's circulation plan. Source: <a href="https://urbanaccessregulations.eu/countries-mainmenu-147/netherlands-mainmenu-88/groningen-carfree" target="_blank" rel="noopener">Urban Access Regulations, 2022</a></figcaption>
   </figure>
@@ -180,7 +173,7 @@
 
   <p>Car-centric cities generate crises far beyond tailpipe emissions. Noise pollution causes stress, hypertension, and sleep disruption. PM2.5 particulate matter from traffic exceeds WHO guidelines in residential streets near heavy corridors. Asphalt-covered streets create urban heat islands 20 to 30 degrees Fahrenheit hotter than shaded streets. Vehicle waste heat accounts for up to 30% of anthropogenic heat emissions in cities — the second-largest source after buildings.</p>
 
-  <figure class="article-figure-inline">
+  <figure class="article-figure">
     <img src="assets/research/fig-5-ev.jpg" alt="Environmental impacts comparing diesel and electric vehicles">
     <figcaption>Figure 5. The environmental impacts of electric vehicles. Source: <a href="https://nodakangler.com/forums/threads/is-it-immoral-to-drive-an-electric-vehicle.15416/" target="_blank" rel="noopener">Nodak Angler, 2022</a></figcaption>
   </figure>

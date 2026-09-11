@@ -25,13 +25,22 @@
 .research-card-thumb {
   overflow: hidden;
   background: var(--accent-tint);
+  min-height: 220px;
+  position: relative;
 }
 .research-card-thumb img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-  min-height: 280px;
+  position: absolute;
+  top: 0; left: 0;
+  font-size: 0;
+  color: transparent;
+}
+@media(max-width:760px){
+  .research-card-thumb { min-height: 180px; }
+  .research-card-thumb img { position: relative; height: auto; }
 }
 .research-card-body {
   padding: 2.4rem;
@@ -107,13 +116,13 @@
 <div class="container">
 
   <!-- Paper 1 -->
-  <a href="research-mobility.html" class="research-card reveal" style="text-decoration:none;color:inherit;">
-    <div class="research-card-thumb">
-      <img src="assets/research/fig-1-street.jpg" alt="Mobility for Life research paper — a pre-automobile street used as shared public space">
-    </div>
+  <article class="research-card reveal">
+    <a href="research-mobility.html" class="research-card-thumb" aria-label="Read: Mobility for Life">
+      <img src="fig-1-street.jpg" alt="">
+    </a>
     <div class="research-card-body">
       <span class="course-tag">MUD 602 — History of Urban Design · TJU · 2025</span>
-      <h2>Mobility for Life: From Car-Centric to Human-Centric Streets</h2>
+      <h2><a href="research-mobility.html" style="color:inherit;text-decoration:none;">Mobility for Life: From Car-Centric to Human-Centric Streets</a></h2>
       <p>Streets are the most significant yet most overlooked public spaces in cities. This paper argues that future cities must transform streets from simple connectors between destinations to the destination itself — addressing the economic, design, and environmental crises created by car-centric planning through a framework of human-centred urban mobility.</p>
       <div class="keywords">
         <span class="kw">Mobility</span>
@@ -124,12 +133,9 @@
       </div>
       <a href="research-mobility.html" class="btn btn-primary" style="align-self:flex-start;margin-top:.4rem;">Read Paper</a>
     </div>
-  </a>
+  </article>
 
-  <!-- Placeholder -->
-  <div class="coming-soon-card reveal">
-    <p>More research papers coming soon</p>
-  </div>
+  <!-- To add another paper, copy the <article class="research-card"> block above and update the link, image, title, description, and keywords. It will stack below automatically. -->
 
 </div>
 

@@ -621,10 +621,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .hero-bg {
   position: absolute;
   inset: 0;
-  background-image: url('hero-map.png');
   background-size: cover;
   background-position: center;
-  opacity: 0.55;
+  opacity: 1;
   z-index: 0;
   pointer-events: none;
 }
@@ -632,7 +631,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(250,249,246,0.12) 0%, rgba(250,249,246,0.35) 60%, rgba(250,249,246,0.95) 100%);
+  background:
+    linear-gradient(90deg, rgba(250,249,246,0.84) 0%, rgba(250,249,246,0.66) 36%, rgba(250,249,246,0.14) 68%, rgba(250,249,246,0) 100%),
+    linear-gradient(to bottom, rgba(250,249,246,0) 82%, rgba(250,249,246,1) 100%);
 }
 .hero > .container { position: relative; z-index: 1; }
 
@@ -661,4 +662,96 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   flex-direction: column;
   gap: 1.2rem;
   flex: 1;
+}
+
+
+/* ---------- Hero details line ---------- */
+.hero-meta {
+  font-family: var(--font-mono);
+  font-size: .74rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  line-height: 1.8;
+  max-width: 62em;
+  margin-top: var(--space-4);
+}
+
+/* ---------- Featured (thesis) card ---------- */
+.discipline-card--featured { grid-column: 1 / -1; flex-direction: row; }
+.discipline-card--featured .discipline-card-img {
+  width: 46%;
+  flex: none;
+  aspect-ratio: auto;
+  min-height: 360px;
+}
+.discipline-card--featured .discipline-card-img img {
+  position: absolute; inset: 0;
+}
+.discipline-card--featured .discipline-card-content { padding: 2.4rem 2.6rem; justify-content: center; }
+.discipline-card--featured h3 { font-size: clamp(1.6rem, 3vw, 2.2rem); }
+.discipline-card .d-summary { color: var(--ink-muted); font-size: .98rem; line-height: 1.65; }
+@media (max-width: 800px) {
+  .discipline-card--featured { flex-direction: column; }
+  .discipline-card--featured .discipline-card-img { width: 100%; aspect-ratio: 16 / 9; min-height: 0; }
+  .discipline-card--featured .discipline-card-content { padding: 1.8rem 1.8rem 2rem; }
+}
+
+/* ---------- Profile summary band ---------- */
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+  margin-bottom: var(--space-5);
+}
+.profile-col h3 {
+  font-family: var(--font-mono);
+  font-size: .75rem;
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  padding-bottom: .7rem;
+  border-bottom: 1px solid var(--line-strong);
+  margin-bottom: .4rem;
+}
+.profile-col ul { list-style: none; }
+.profile-col li {
+  padding: .8rem 0;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: .15rem;
+}
+.profile-col li strong { font-weight: 600; font-size: .98rem; }
+.profile-col li span { color: var(--ink-muted); font-size: .86rem; }
+@media (max-width: 900px) { .profile-grid { grid-template-columns: 1fr; gap: var(--space-4); } }
+
+/* Slightly stronger text over the hero map */
+.hero-body { color: #3B4046; }
+
+
+/* ---------- Personal introduction ---------- */
+.intro-grid { display: flex; gap: var(--space-6); align-items: flex-start; justify-content: space-between; }
+.intro-text { flex: 1; min-width: 0; max-width: 46em; }
+.intro-text h2 { font-size: clamp(1.9rem, 4vw, 3rem); font-weight: 800; margin: .8rem 0 var(--space-3); }
+.intro-text p { margin-bottom: var(--space-2); }
+.intro-text .intro-welcome { color: var(--ink-muted); }
+.intro-text .btn-row { margin-top: var(--space-3); }
+.intro-photo {
+  flex: none; width: min(340px, 34%); aspect-ratio: 4 / 5; margin: 0;
+  overflow: hidden; background: var(--accent-tint); border: 1px solid var(--line);
+}
+.intro-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+@media (max-width: 800px) {
+  .intro-grid { flex-direction: column; gap: var(--space-4); }
+  .intro-photo { width: 100%; max-width: 340px; }
+}
+
+@media (max-width: 800px) {
+  .hero-bg::after {
+    background:
+      linear-gradient(rgba(250,249,246,0.72), rgba(250,249,246,0.72)),
+      linear-gradient(to bottom, rgba(250,249,246,0) 82%, rgba(250,249,246,1) 100%);
+  }
 }

@@ -3,12 +3,33 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About — Urvi Patel</title>
+<title>About | Urvi Patel</title>
+<meta name="description" content="About Urvi Patel: urban designer, planner, GIS analyst, and architect. Education, experience, awards, research, and skills.">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23FAF9F6'/%3E%3Cpath d='M16 4v24M4 16h24' stroke='%231B48C4' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='6' fill='none' stroke='%2316191D' stroke-width='1.5'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<style>
+.a-block { display:grid; grid-template-columns: 220px 1fr; gap: var(--space-5); padding-block: var(--space-5); border-top:1px solid var(--line); }
+.a-block > h2 { font-family:var(--font-mono); font-size:.78rem; font-weight:500; letter-spacing:.1em; text-transform:uppercase; color:var(--accent); line-height:1.4; padding-top:.35rem; }
+.a-intro p { max-width:46em; margin-bottom:var(--space-2); }
+.a-intro p.lead { font-family:var(--font-display); font-weight:700; font-size:clamp(1.3rem,2.6vw,1.8rem); line-height:1.25; margin-bottom:var(--space-3); }
+.a-item { display:grid; grid-template-columns: 1fr auto; gap:.2rem var(--space-3); padding:1.1rem 0; border-bottom:1px solid var(--line); }
+.a-item:first-child { padding-top:0; }
+.a-item h3 { font-size:1.1rem; font-weight:800; }
+.a-item .when { font-family:var(--font-mono); font-size:.74rem; letter-spacing:.05em; text-transform:uppercase; color:var(--ink-muted); text-align:right; padding-top:.25rem; }
+.a-item .where { grid-column:1 / -1; color:var(--accent); font-size:.92rem; font-weight:500; }
+.a-item p { grid-column:1 / -1; color:var(--ink-muted); font-size:.96rem; max-width:46em; margin-top:.35rem; }
+.a-skills p { padding:.7rem 0; border-bottom:1px solid var(--line); font-size:.96rem; }
+.a-skills strong { display:block; font-family:var(--font-mono); font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-muted); font-weight:500; margin-bottom:.2rem; }
+.a-links { display:flex; flex-wrap:wrap; gap:var(--space-2); margin-top:var(--space-3); }
+@media (max-width: 800px) {
+  .a-block { grid-template-columns: 1fr; gap: var(--space-2); }
+  .a-item { grid-template-columns: 1fr; }
+  .a-item .when { text-align:left; }
+}
+</style>
 </head>
 <body>
 
@@ -17,10 +38,10 @@
     <a href="index.html" class="logo">URVI PATEL</a>
     <nav class="nav" id="siteNav">
       <a href="index.html" class="nav-link">Home</a>
+      <a href="thesis.html" class="nav-link">Thesis</a>
       <a href="urban-design.html" class="nav-link">Urban Design</a>
       <a href="architecture.html" class="nav-link">Architecture</a>
       <a href="about.html" class="nav-link active">About</a>
-      <a href="contact.html" class="nav-link">Contact</a>
     </nav>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -30,27 +51,146 @@
 
 <div class="container page-header">
   <span class="eyebrow">About</span>
-  <h1>About</h1>
+  <h1>Urvi Patel</h1>
+  <p>Urban designer, planner, GIS analyst, and architect.</p>
 </div>
 
-<div class="container" style="max-width:680px;padding-bottom:var(--space-6);">
-  <p style="font-size:1.15rem;line-height:1.7;margin-bottom:var(--space-4);">I'm Urvi Patel, an urban designer and architect based in Philadelphia finishing a Master of Urban Design at Thomas Jefferson University. My work sits at the intersection of data-driven analysis and human-centred design, using GIS, community engagement, and computational tools to reimagine streets, corridors, and urban districts.</p>
-  <p style="font-size:1.15rem;line-height:1.7;margin-bottom:var(--space-5);">For my full background including education, experience, and skills, visit my LinkedIn profile or get in touch directly.</p>
-  <div class="btn-row">
-    <a href="https://www.linkedin.com/in/urvi-patel-0b5b4a239/" target="_blank" rel="noopener" class="btn btn-primary">View LinkedIn Profile</a>
+<div class="container">
+
+  <section class="a-block">
+    <h2>Profile</h2>
+    <div class="a-intro">
+      <p class="lead">I work where design thinking meets spatial analysis, to support resilient, people-centred cities.</p>
+      <p>I'm completing a Master of Urban Design in the Future Cities program at Thomas Jefferson University, graduating in December 2026. My work focuses on walkable environments, public realm design, and data-informed planning, combining architectural training with GIS-based urban research.</p>
+      <p>I have professional experience supporting architectural and planning teams through site analysis, zoning research, land development documentation, and design visualisation. I enjoy turning complex urban data into clear graphics, master plans, and presentation materials that guide collaborative decision-making.</p>
+      <p>My academic and professional projects explore pedestrian-oriented streets, mixed-use redevelopment, and climate-responsive urban design. I'm particularly interested in work that strengthens community life, improves accessibility, and enhances urban sustainability.</p>
+      <div class="a-links">
+        <a href="Urvi-Patel-Resume.pdf" class="btn btn-primary" target="_blank" rel="noopener">Download Resume</a>
+        <a href="https://www.linkedin.com/in/urvi-patel-0b5b4a239/" class="btn btn-outline" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="mailto:urpatel0810@gmail.com" class="btn btn-outline">Email</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="a-block">
+    <h2>Education</h2>
+    <div>
+      <div class="a-item">
+        <h3>Master of Urban Design, Future Cities</h3>
+        <span class="when">Dec 2024 to Dec 2026</span>
+        <span class="where">Thomas Jefferson University, Philadelphia</span>
+        <p>GPA 4.0 · Dean's Scholarship. Thesis: Extending the Node-Place Model for TOD.</p>
+      </div>
+      <div class="a-item">
+        <h3>Bachelor of Architecture</h3>
+        <span class="when">Jul 2019 to Jul 2024</span>
+        <span class="where">Lok Jagruti University, Ahmedabad</span>
+        <p>First Class.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="a-block">
+    <h2>Experience</h2>
+    <div>
+      <div class="a-item">
+        <h3>Technical Support Services</h3>
+        <span class="when">Oct 2025 to Present</span>
+        <span class="where">Thomas Jefferson University, Philadelphia</span>
+        <p>Provide technical support to students, faculty, and staff, troubleshooting hardware and software issues and supporting day-to-day IT operations in a fast-paced academic environment.</p>
+      </div>
+      <div class="a-item">
+        <h3>Freelance Interior Designer</h3>
+        <span class="when">Mar 2024 to Nov 2024</span>
+        <span class="where">Self-employed, Ahmedabad</span>
+        <p>Provided residential interior design services for individual clients, from initial concept to final design. Created space layouts, selected materials and finishes, and produced 3D visualisations and presentation drawings in AutoCAD, SketchUp, and Adobe Photoshop.</p>
+      </div>
+      <div class="a-item">
+        <h3>Architectural Intern</h3>
+        <span class="when">Jun 2022 to Nov 2022</span>
+        <span class="where">Dera Consultant Pvt. Ltd., Ahmedabad</span>
+        <p>Supported architectural and planning teams on large-scale development projects through site analysis, zoning research, and land-use documentation. Developed conceptual layouts and presentation drawings, created diagrams and graphics for clients and team members, and joined site visits to document existing conditions.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="a-block">
+    <h2>Awards &amp; Honors</h2>
+    <div>
+      <div class="a-item">
+        <h3>UDAC Award for Advocacy in Urban Design</h3>
+        <span class="when">May 2026</span>
+        <span class="where">Urban Design Academic Council</span>
+      </div>
+      <div class="a-item">
+        <h3>Tau Sigma Delta Architecture Honor Society</h3>
+        <span class="when">Inducted member</span>
+        <span class="where">Epsilon Phi Alpha Chapter</span>
+      </div>
+      <div class="a-item">
+        <h3>Dean's Scholarship</h3>
+        <span class="when">2024 to 2026</span>
+        <span class="where">Thomas Jefferson University</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="a-block">
+    <h2>Research</h2>
+    <div>
+      <div class="a-item">
+        <h3><a href="thesis.html">Extending the Node-Place Model for TOD</a></h3>
+        <span class="when">2026 · In progress</span>
+        <span class="where">Master's thesis, Thomas Jefferson University</span>
+        <p>A four-dimension GIS model of transit connectivity, land use, social equity, and the pedestrian environment across Philadelphia's SEPTA network.</p>
+      </div>
+      <div class="a-item">
+        <h3>ACSA 2026 Intersections Research Conference</h3>
+        <span class="when">Oct 2026</span>
+        <span class="where">New York Institute of Technology</span>
+        <p>Research paper with Dr. Peng Du and Irene Amankwah Bonsu, in the session Alternative Urban Narratives, Place &amp; Everyday Life.</p>
+      </div>
+      <div class="a-item">
+        <h3><a href="research-mobility.html">Mobility for Life: From Car-Centric to Human-Centric Streets</a></h3>
+        <span class="when">2025</span>
+        <span class="where">MUD 602, History of Urban Design</span>
+      </div>
+      <div class="a-item">
+        <h3><a href="https://storymaps.arcgis.com/stories/4d344e0b529c44e48973544baea5a173" target="_blank" rel="noopener">Evaluating TOD Development Potential in Philadelphia ↗</a></h3>
+        <span class="when">2026</span>
+        <span class="where">ArcGIS StoryMap</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="a-block">
+    <h2>Skills &amp; Tools</h2>
+    <div class="a-skills">
+      <p><strong>GIS &amp; Data</strong>ArcGIS Pro | QGIS | Spatial Analysis | Data Visualisation | GTFS, Census &amp; Open Data</p>
+      <p><strong>Planning &amp; Urban Design</strong>Land-Use Planning | Transit-Oriented Development | Site Analysis | Public Realm &amp; Streetscape Design | Community Engagement | Zoning Research</p>
+      <p><strong>Design Software</strong>AutoCAD | SketchUp | Rhino | Revit (learning) | Adobe InDesign | Illustrator | Photoshop</p>
+    </div>
+  </section>
+
+</div>
+
+<section class="section cta-band">
+  <div class="container">
+    <h2>Let's design the next great public place.</h2>
     <a href="contact.html" class="btn btn-outline">Get in Touch</a>
   </div>
-</div>
+</section>
 
 <footer class="site-footer">
   <div class="container footer-grid">
     <div class="footer-col">
       <p class="footer-name">URVI PATEL</p>
-      <p class="footer-tagline">Urban Designer · Researcher · Architect<br>Philadelphia, PA</p>
+      <p class="footer-tagline">Urban Designer · Planner · GIS Analyst · Architect</p>
     </div>
     <div class="footer-col">
       <p class="footer-heading">Index</p>
       <a href="index.html">Home</a>
+      <a href="thesis.html">Thesis</a>
       <a href="urban-design.html">Urban Design</a>
       <a href="architecture.html">Architecture</a>
       <a href="research.html">Research</a>

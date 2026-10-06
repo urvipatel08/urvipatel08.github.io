@@ -3,9 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Thesis | Urvi Patel</title>
-<meta name="description" content="Master's thesis by Urvi Patel: extending the node-place model for transit-oriented development to integrate social equity and pedestrian environment quality in Philadelphia.">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23FAF9F6'/%3E%3Cpath d='M16 4v24M4 16h24' stroke='%231B48C4' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='6' fill='none' stroke='%2316191D' stroke-width='1.5'/%3E%3C/svg%3E">
+<title>Thesis: Extending the Node-Place Model | Urvi Patel</title>
+<meta name="description" content="Master's thesis by Urvi Patel: extending the node-place model for transit-oriented development to integrate social equity and pedestrian environment quality, scoring all 50 of Philadelphia's rapid-transit stations.">
+<meta property="og:title" content="Extending the Node-Place Model for TOD | Urvi Patel">
+<meta property="og:description" content="Scoring Philadelphia's 50 rapid-transit stations on transit, land use, walkability, and social equity to find where strong transit is not yet building strong neighbourhoods.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://urvipatel08.github.io/thesis.html">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23FAF9F6'/%3E%3Cpath d='M16 4v24M4 16h24' stroke='%231D4E66' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='6' fill='none' stroke='%2316191D' stroke-width='1.5'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -16,6 +20,7 @@
 .t-chip { font-family:var(--font-mono); font-size:.7rem; letter-spacing:.06em; text-transform:uppercase; border:1px solid var(--line-strong); padding:.3em .8em; color:var(--ink-muted); background:var(--surface); }
 .t-block { display:grid; grid-template-columns: 220px 1fr; gap: var(--space-5); padding-block: var(--space-5); border-top:1px solid var(--line); }
 .t-block > h2 { font-family:var(--font-mono); font-size:.78rem; font-weight:500; letter-spacing:.1em; text-transform:uppercase; color:var(--accent); line-height:1.4; padding-top:.35rem; }
+.t-body { min-width:0; }
 .t-body p { max-width:46em; color:var(--ink); margin-bottom:var(--space-2); }
 .t-body p.muted { color:var(--ink-muted); }
 .t-body ul.t-list { list-style:none; max-width:46em; }
@@ -36,6 +41,228 @@
   .t-block { grid-template-columns: 1fr; gap: var(--space-2); }
   .t-dims { grid-template-columns: 1fr; }
 }
+[hidden] { display:none !important; }
+/* ---- Network diagram (thesis signature) ---- */
+.nw { margin-top:var(--space-5); border:1px solid var(--line); background:var(--surface); }
+.nw-head { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1rem; padding:1rem 1.25rem; border-bottom:1px solid var(--line); }
+.nw-title { font-size:1.3rem; font-weight:800; margin:0; }
+.nw-tabs { display:flex; flex-wrap:wrap; gap:.4rem; }
+.nw-tabs button { font:inherit; font-size:.82rem; background:none; border:1px solid var(--line-strong); color:var(--ink); padding:.35em .8em; cursor:pointer; }
+.nw-tabs button:hover { border-color:var(--accent); }
+.nw-tabs button[aria-pressed="true"] { background:var(--accent); border-color:var(--accent); color:#fff; }
+.nw-tabs button:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+.nw-body { display:grid; grid-template-columns:1fr 260px; }
+.nw-svg-wrap { padding:.5rem; min-width:0; }
+.nw-svg-wrap svg { width:100%; height:auto; display:block; }
+.nw-info { border-left:1px solid var(--line); padding:1.25rem; }
+.nw .nw-hint { color:var(--ink-muted); font-size:.9rem; }
+.nw-info h3 { font-size:1.2rem; font-weight:800; margin:0 0 .15rem; }
+.nw .nw-info .ln { max-width:none; font-size:.82rem; color:var(--ink-muted); margin-bottom:.9rem; }
+.nw-info table { width:100%; border-collapse:collapse; font-size:.88rem; }
+.nw-info td { padding:.38rem 0; border-top:1px solid var(--line); }
+.nw-info td:last-child { text-align:right; font-variant-numeric:tabular-nums; }
+.nw-info tr.on td { font-weight:700; color:var(--accent); }
+.nw-info .sw { display:inline-block; width:.7rem; height:.7rem; border-radius:50%; margin-right:.45rem; vertical-align:-1px; border:1px solid rgba(0,0,0,.15); }
+.nw .nw-note { max-width:none; margin:0; padding:.75rem 1.25rem; border-top:1px solid var(--line); font-size:.8rem; color:var(--ink-muted); }
+#nwSvg .line { fill:none; stroke-width:7; stroke-linecap:round; stroke-linejoin:round; }
+#nwSvg .bsl { stroke:#F1C98A; }
+#nwSvg .mfl { stroke:#A7C6E0; }
+#nwSvg .spur { stroke:#F1C98A; stroke-dasharray:1 10; }
+#nwSvg .lbl { font-family:var(--font-body); font-size:11.5px; fill:var(--ink); }
+#nwSvg .leg { font-family:var(--font-body); font-size:11.5px; fill:var(--ink-muted); }
+#nwSvg .lname { font-family:var(--font-mono); font-size:11px; letter-spacing:.06em; fill:var(--ink-muted); text-transform:uppercase; }
+#nwSvg .st { cursor:pointer; outline:none; }
+#nwSvg .st circle { stroke:#fff; stroke-width:1.5; transition:fill .35s ease; }
+#nwSvg .st circle { paint-order:stroke; filter:drop-shadow(0 0 .6px rgba(22,25,29,.55)); }
+#nwSvg .st:hover circle, #nwSvg .st:focus-visible circle, #nwSvg .st.sel circle { stroke:var(--ink); stroke-width:2.5; }
+#nwSvg .st.sel .lbl, #nwSvg .st:hover .lbl, #nwSvg .st:focus-visible .lbl { font-weight:700; }
+@media (prefers-reduced-motion: reduce) { #nwSvg .st circle { transition:none; } }
+@media (max-width: 900px) {
+  .nw-body { grid-template-columns:1fr; }
+  .nw-info { border-left:0; border-top:1px solid var(--line); }
+}
+@media (max-width: 600px) {
+  #nwSvg .lbl { display:none; }
+  #nwSvg .st.sel .lbl { display:inline; font-size:22px; paint-order:stroke; stroke:#fff; stroke-width:5px; }
+  #nwSvg .lname { font-size:15px; } #nwSvg .leg { font-size:18px; }
+}
+
+/* ---- Added Oct 2026: findings, station explorer, case stations ---- */
+.t-ask { font-weight:600; font-size:1.08rem; max-width:40em; }
+.t-lead { font-family:var(--font-display); font-weight:800; font-size:clamp(1.35rem,2.4vw,1.8rem); line-height:1.2; max-width:24em; margin-bottom:var(--space-3); color:var(--ink); }
+.t-steps { list-style:none; padding:0; counter-reset:step; max-width:46em; margin-top:var(--space-3); }
+.t-steps li { counter-increment:step; display:grid; grid-template-columns:2.4rem 1fr auto; gap:.2rem 1rem; padding:.85rem 0; border-top:1px solid var(--line); align-items:baseline; }
+.t-steps li:last-child { border-bottom:1px solid var(--line); }
+.t-steps li::before { content:counter(step); grid-row:1; font-family:var(--font-mono); font-size:.8rem; color:var(--accent); }
+.t-steps strong { grid-row:1; grid-column:2; font-weight:600; }
+.t-steps .st { grid-row:1; grid-column:3; font-family:var(--font-mono); font-size:.66rem; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-muted); }
+.t-steps .st.done { color:var(--accent); }
+.t-steps .d { grid-row:2; grid-column:2 / 4; color:var(--ink-muted); font-size:.92rem; }
+.t-finds { display:grid; grid-template-columns:repeat(2,1fr); gap:var(--space-3); margin-top:var(--space-3); }
+.t-find { border:1px solid var(--line); background:var(--surface); padding:1.4rem 1.5rem 1.5rem; display:flex; flex-direction:column; }
+.t-find .dim { font-family:var(--font-mono); font-size:.7rem; letter-spacing:.08em; text-transform:uppercase; color:var(--accent); }
+.t-find h3 { font-size:1.15rem; font-weight:800; margin:.3rem 0 .8rem; }
+.t-find .range { display:flex; flex-wrap:wrap; gap:.6rem 1.6rem; border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:.65rem 0; margin-bottom:.9rem; }
+.t-find .range div { display:flex; flex-direction:column; }
+.t-find .range b { font-family:var(--font-display); font-size:1.35rem; font-weight:800; line-height:1.15; }
+.t-find .range small { font-size:.74rem; color:var(--ink-muted); }
+.t-find p { font-size:.93rem; color:var(--ink); margin:0; }
+.t-find .t-fig { margin-top:var(--space-3); }
+.t-overall { margin-top:var(--space-3); border:1px solid var(--accent); background:var(--accent-tint); padding:1.4rem 1.5rem; }
+.t-overall h3 { font-size:1.15rem; font-weight:800; margin-bottom:.5rem; }
+.t-overall p { margin:0; max-width:46em; }
+
+/* Station explorer */
+.sx-wrap { margin-top:var(--space-3); border:1px solid var(--line); background:var(--surface); }
+.sx-controls { display:flex; flex-wrap:wrap; align-items:center; gap:.5rem 1rem; padding:.9rem 1rem; border-bottom:1px solid var(--line); }
+.sx-controls .lbl { font-size:.85rem; color:var(--ink-muted); }
+.sx-filter { display:flex; flex-wrap:wrap; gap:.4rem; }
+.sx-filter button { font:inherit; font-size:.82rem; background:none; border:1px solid var(--line-strong); color:var(--ink); padding:.35em .8em; cursor:pointer; }
+.sx-filter button:hover { border-color:var(--accent); }
+.sx-filter button[aria-pressed="true"] { background:var(--accent); border-color:var(--accent); color:#fff; }
+.sx-filter button:focus-visible, .sx th button:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+.sx-count { margin-left:auto; font-size:.82rem; color:var(--ink-muted); }
+.sx-scroll { overflow:auto; max-height:40rem; }
+.sx { width:100%; min-width:720px; border-collapse:collapse; font-size:.88rem; }
+.sx th { position:sticky; top:0; background:var(--surface); z-index:1; text-align:left; font-weight:500; border-bottom:1px solid var(--line-strong); padding:0; white-space:nowrap; }
+.sx th.plain { padding:.7rem .75rem; color:var(--ink-muted); font-size:.8rem; }
+.sx th button { font:inherit; font-size:.8rem; width:100%; text-align:left; background:none; border:0; padding:.7rem .75rem; cursor:pointer; color:var(--ink-muted); }
+.sx th button:hover { color:var(--ink); }
+.sx th button::after { content:"\2195"; margin-left:.35em; opacity:.45; }
+.sx th[aria-sort] button { color:var(--accent); font-weight:600; }
+.sx th[aria-sort="descending"] button::after { content:"\2193"; opacity:1; }
+.sx th[aria-sort="ascending"] button::after { content:"\2191"; opacity:1; }
+.sx td { padding:.5rem .75rem; border-bottom:1px solid var(--line); white-space:nowrap; }
+.sx td.rk { font-family:var(--font-mono); font-size:.75rem; color:var(--ink-muted); width:3rem; }
+.sx td.nm { font-weight:500; white-space:normal; min-width:12rem; }
+.sx td.ln { font-family:var(--font-mono); font-size:.7rem; color:var(--ink-muted); }
+.sx .bar { display:inline-block; vertical-align:middle; width:52px; height:6px; background:var(--paper); border:1px solid var(--line); position:relative; margin-right:.5rem; }
+.sx .bar i { position:absolute; top:0; bottom:0; left:0; width:calc(var(--v) * 100%); background:var(--line-strong); }
+.sx td.on .bar i { background:var(--accent); }
+.sx td.on { font-weight:600; }
+.sx tr.case td { background:var(--accent-tint); }
+.sx .tag { margin-left:.5rem; font-family:var(--font-mono); font-size:.6rem; letter-spacing:.06em; text-transform:uppercase; color:var(--accent); border:1px solid var(--accent); padding:.1em .45em; white-space:nowrap; font-weight:500; }
+.sx .short { display:none; }
+@media (max-width: 700px) {
+  .sx { min-width:0; font-size:.76rem; }
+  .sx th button, .sx th.plain { font-size:.74rem; }
+  .sx td.ln, .sx th.ln-h, .sx .tag, .sx .bar { display:none; }
+  .sx td, .sx th.plain, .sx th button { padding:.5rem .4rem; }
+  .sx td.nm { min-width:5.2rem; }
+  .sx td, .sx th.plain, .sx th button { padding-left:.3rem; padding-right:.3rem; }
+  .sx td.rk { width:1.8rem; }
+  .sx .full { display:none; } .sx .short { display:inline; }
+  .sx th button::after { margin-left:.15em; }
+}
+.sx-note { padding:.75rem 1rem; font-size:.8rem; color:var(--ink-muted); border-top:1px solid var(--line); margin:0; }
+
+/* Case stations */
+.t-cases { display:grid; grid-template-columns:repeat(2,1fr); gap:var(--space-3); margin-top:var(--space-3); }
+.t-case { border:1px solid var(--line); background:var(--surface); padding:1.4rem 1.5rem 1.5rem; }
+.t-case.bench { border-color:var(--accent); }
+.t-case .role { font-size:.82rem; color:var(--accent); font-weight:600; }
+.t-case h3 { font-size:1.25rem; font-weight:800; margin:.2rem 0 .1rem; }
+.t-case .ln { font-size:.82rem; color:var(--ink-muted); margin-bottom:.9rem; }
+.t-case table { width:100%; border-collapse:collapse; font-size:.86rem; margin-bottom:.9rem; }
+.t-case td { padding:.32rem 0; border-top:1px solid var(--line); }
+.t-case td:first-child { width:7rem; }
+.t-case td:last-child { text-align:right; font-family:var(--font-mono); font-size:.76rem; color:var(--ink-muted); width:3.5rem; }
+.t-case tr.tot td { font-weight:600; border-top:1px solid var(--ink); }
+.t-case .bar { display:inline-block; vertical-align:middle; width:calc(100% - 3.2rem); max-width:180px; height:6px; background:var(--paper); border:1px solid var(--line); position:relative; margin-right:.5rem; }
+.t-case .bar i { position:absolute; top:0; bottom:0; left:0; width:calc(var(--v) * 100%); background:var(--accent); }
+.t-case p { font-size:.92rem; margin:0 0 .8rem; }
+.t-case a.map { font-size:.85rem; color:var(--accent); }
+.t-case .t-fig { margin-top:var(--space-2); }
+@media (max-width: 800px) {
+  .t-finds, .t-cases { grid-template-columns:1fr; }
+  .sx-count { margin-left:0; width:100%; }
+}
+/* ---- Thesis v4 (Oct 2026): dimension colours match the ArcGIS maps ---- */
+:root { --c-node:#2B4675; --c-place:#3E6438; --c-ped:#B08A1A; --c-social:#7E4790; --c-overall:#9A2457; }
+.t-body h3.t-subhead { font-size:1.2rem; font-weight:800; margin:var(--space-5) 0 var(--space-2); }
+.t-note { font-size:.92rem; margin-top:var(--space-3); }
+/* Problem */
+.t-gaps { display:grid; grid-template-columns:repeat(2,1fr); gap:var(--space-3); margin:var(--space-3) 0; max-width:52em; }
+.t-gap { border-top:2px solid var(--ink); padding-top:.9rem; }
+.t-gap h3 { font-size:1.05rem; font-weight:800; margin-bottom:.4rem; }
+.t-gap p { font-size:.94rem; color:var(--ink-muted); margin:0; }
+.t-question { margin:var(--space-4) 0 0; padding:1.5rem 1.6rem; background:var(--accent); color:#fff; max-width:52em; }
+.t-question span { display:block; font-size:.82rem; font-weight:600; opacity:.8; margin-bottom:.5rem; }
+.t-body .t-question p { color:#fff; font-family:var(--font-display); font-weight:700; font-size:clamp(1.1rem,2vw,1.35rem); line-height:1.35; margin:0; max-width:none; }
+/* 2 -> 4 */
+.t-extend { display:flex; align-items:center; gap:var(--space-3); margin-bottom:var(--space-3); flex-wrap:wrap; }
+.t-extend-cap { font-size:.82rem; color:var(--ink-muted); margin-bottom:.45rem !important; }
+.t-axes { display:grid; grid-template-columns:repeat(2, 7.2rem); gap:.4rem; }
+.t-axes-4 { grid-template-columns:repeat(2, 7.2rem); }
+.ax { display:block; padding:.7rem .8rem; font-weight:700; font-size:.92rem; background:var(--surface); border:1px solid var(--line); border-left:4px solid; }
+.ax-node { border-left-color:var(--c-node); } .ax-place { border-left-color:var(--c-place); }
+.ax-ped { border-left-color:var(--c-ped); } .ax-social { border-left-color:var(--c-social); }
+.ax.is-new { background:var(--accent-tint); }
+.ax.is-new::after { content:"new"; float:right; font-weight:500; font-size:.72rem; color:var(--accent); margin-top:.15rem; }
+.t-extend-arrow { width:3rem; height:2px; background:var(--ink-muted); position:relative; margin-top:1.4rem; }
+.t-extend-arrow::after { content:""; position:absolute; right:-1px; top:-4px; border:5px solid transparent; border-left:7px solid var(--ink-muted); border-right:0; }
+.t-dim { border-top:4px solid var(--line-strong); }
+.t-dim.d-node { border-top-color:var(--c-node); } .t-dim.d-place { border-top-color:var(--c-place); }
+.t-dim.d-ped { border-top-color:var(--c-ped); } .t-dim.d-social { border-top-color:var(--c-social); }
+.t-dim .src { text-transform:none; letter-spacing:0; font-family:var(--font-body); font-size:.86rem; }
+.rev { font-size:.72rem; color:var(--ink-muted); border:1px solid var(--line-strong); padding:.05em .4em; margin-left:.35rem; white-space:nowrap; }
+/* Range chart */
+.t-range { margin-top:var(--space-3); border:1px solid var(--line); background:var(--surface); padding:.4rem 1.2rem .9rem; }
+.t-range-row { display:grid; grid-template-columns:8.5rem 1fr 3.5rem; gap:1rem; align-items:center; padding:.75rem 0; border-bottom:1px solid var(--line); }
+.t-range-row > span:last-child { text-align:right; font-variant-numeric:tabular-nums; }
+.t-range-head { font-size:.8rem; color:var(--ink-muted); padding:.5rem 0; }
+.t-range-row.r-overall { border-bottom:0; }
+.trk { position:relative; height:1.9rem; background:linear-gradient(var(--line),var(--line)) center/100% 2px no-repeat; }
+.trk i { position:absolute; top:50%; height:10px; margin-top:-5px; left:calc(var(--lo)*100%); width:calc((var(--hi) - var(--lo))*100%); background:var(--c, var(--accent)); opacity:.85; }
+.trk b { position:absolute; top:50%; width:3px; height:20px; margin-top:-10px; left:calc(var(--m)*100%); background:var(--ink); }
+.trk em { position:absolute; top:-2px; font-style:normal; font-size:.7rem; color:var(--ink-muted); font-variant-numeric:tabular-nums; }
+.trk em.lo { left:calc(var(--lo)*100% - 6px); top:50%; transform:translate(-100%,-50%); }
+.trk em.hi { left:calc(var(--hi)*100% + 6px); top:50%; transform:translateY(-50%); }
+.r-node { --c:var(--c-node); } .r-place { --c:var(--c-place); } .r-ped { --c:var(--c-ped); } .r-social { --c:var(--c-social); } .r-overall { --c:var(--c-overall); }
+.t-body p.t-range-key { font-size:.8rem; color:var(--ink-muted); margin:.6rem 0 0; }
+/* Finding cards: dimension colour + map toggle */
+.t-find { border-top:4px solid var(--line-strong); }
+.t-find.f-node { border-top-color:var(--c-node); } .t-find.f-place { border-top-color:var(--c-place); }
+.t-find.f-ped { border-top-color:var(--c-ped); } .t-find.f-social { border-top-color:var(--c-social); }
+.t-find .dim { color:var(--ink-muted); }
+.t-swap-btns { display:flex; border-bottom:1px solid var(--line); }
+.t-swap-btns button { flex:1; font:inherit; font-size:.8rem; background:none; border:0; border-right:1px solid var(--line); padding:.55rem .5rem; cursor:pointer; color:var(--ink-muted); }
+.t-swap-btns button:last-child { border-right:0; }
+.t-swap-btns button[aria-pressed="true"] { color:var(--ink); font-weight:600; box-shadow:inset 0 -2px 0 var(--ink); }
+.t-swap-btns button:focus-visible { outline:2px solid var(--accent); outline-offset:-2px; }
+/* Reveals */
+.t-reveals { display:grid; grid-template-columns:repeat(2,1fr); gap:0 var(--space-4); }
+.t-reveal { padding:1rem 0; border-top:1px solid var(--line); }
+.t-reveal h4 { font-family:var(--font-display); font-size:1rem; font-weight:800; margin-bottom:.35rem; }
+.t-reveal p { font-size:.93rem; margin:0; }
+button.stn { font:inherit; font-weight:600; color:var(--accent); background:none; border:0; padding:0; cursor:pointer; text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:3px; }
+button.stn:hover { color:var(--accent-dark); text-decoration-thickness:2px; }
+button.stn:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+/* Cases: colour bars per dimension, flagship */
+.t-case .bar i { background:var(--c, var(--accent)); }
+.b-node { --c:var(--c-node); } .b-place { --c:var(--c-place); } .b-ped { --c:var(--c-ped); } .b-social { --c:var(--c-social); } .b-overall { --c:var(--c-overall); }
+.t-case.flagship { border-color:var(--ink); border-width:2px; }
+.t-case .t-fig { margin:0 0 1rem; }
+/* Diagnosis */
+.t-diag { margin-top:var(--space-3); border-top:2px solid var(--ink); max-width:56em; }
+.t-diag-row { display:grid; grid-template-columns:1fr 1fr; gap:var(--space-3); padding:1rem 0; border-bottom:1px solid var(--line); }
+.t-diag-sym h3 { font-size:1.02rem; font-weight:800; margin-bottom:.25rem; }
+.t-diag-sym p, .t-diag-rx p { font-size:.93rem; margin:0; }
+.t-diag-sym p { color:var(--ink-muted); }
+.t-diag-rx p:first-child { font-weight:600; }
+.t-diag-rx .eg { margin-top:.4rem; display:flex; flex-wrap:wrap; gap:.3rem 1rem; }
+/* Credits */
+.t-credits { margin:0; max-width:46em; }
+.t-credits div { display:grid; grid-template-columns:8rem 1fr; gap:1rem; padding:.55rem 0; border-top:1px solid var(--line); font-size:.93rem; }
+.t-credits dt { color:var(--ink-muted); }
+.t-credits dd { margin:0; }
+@media (max-width: 800px) {
+  .t-gaps, .t-reveals, .t-diag-row { grid-template-columns:1fr; }
+  .t-diag-row { gap:.5rem; }
+  .t-range-row { grid-template-columns:5.6rem 1fr 2.6rem; gap:.6rem; font-size:.88rem; }
+  .t-credits div { grid-template-columns:1fr; gap:.15rem; }
+}
+@media (max-width: 420px) { .t-axes, .t-axes-4 { grid-template-columns:repeat(2, 6.4rem); } .t-extend-arrow { transform:rotate(90deg); margin:0 auto; } }
 </style>
 </head>
 <body>
@@ -57,13 +284,13 @@
 </header>
 
 <div class="container page-header">
-  <span class="eyebrow">Master's Thesis · In Progress</span>
-  <h1>Extending the Node-Place Model for TOD</h1>
-  <p>Integrating social equity and pedestrian environment quality: a case study of Philadelphia.</p>
+  <span class="eyebrow">Master's Thesis · Presented at ACSA 2026</span>
+  <h1>Extending the Node-Place Model</h1>
+  <p>A four-dimensional framework for identifying underperforming transit stations in Philadelphia.</p>
   <div class="t-meta">
     <span>Thomas Jefferson University</span>
     <span>Master of Urban Design, Future Cities</span>
-    <span>Advisor: Dr. Peng Du</span>
+    <span>With Dr. Peng Du &amp; Irene Amankwah Bonsu</span>
     <span>2026</span>
   </div>
   <div class="t-chips">
@@ -73,10 +300,25 @@
     <span class="t-chip">Social Equity</span>
     <span class="t-chip">GIS</span>
   </div>
-  <figure class="t-fig t-cover" data-img-wrap="hide">
-    <img data-img="thesis-cover" alt="Thesis analysis map of Philadelphia station areas">
-    <figcaption>Station-area analysis, Philadelphia</figcaption>
-  </figure>
+  <div class="nw" id="network">
+    <div class="nw-head">
+      <h2 class="nw-title">The network, scored</h2>
+      <div class="nw-tabs" role="group" aria-label="Colour stations by">
+        <button type="button" data-k="6" aria-pressed="true">Overall TOD</button>
+        <button type="button" data-k="2" aria-pressed="false">Node</button>
+        <button type="button" data-k="3" aria-pressed="false">Place</button>
+        <button type="button" data-k="4" aria-pressed="false">Pedestrian</button>
+        <button type="button" data-k="5" aria-pressed="false">Social</button>
+      </div>
+    </div>
+    <div class="nw-body">
+      <div class="nw-svg-wrap"><svg id="nwSvg" viewBox="0 0 1000 580" role="img" aria-label="Schematic diagram of Philadelphia's Broad Street Line, Market-Frankford Line and Broad-Ridge Spur, with all 50 stations coloured by score"></svg></div>
+      <aside class="nw-info" id="nwInfo" aria-live="polite">
+        <p class="nw-hint">Select a station to see its scores.</p>
+      </aside>
+    </div>
+    <p class="nw-note">Schematic, not to scale. Darker means a higher score in the selected dimension, in the same colours as the maps below. The two dots at 15th St/City Hall are the two entries for that interchange in the data.</p>
+  </div>
 </div>
 
 <div class="container">
@@ -84,119 +326,401 @@
   <section class="t-block">
     <h2>Overview</h2>
     <div class="t-body">
-      <p>Transit-oriented development is meant to channel growth into compact, walkable, mixed-use neighbourhoods around transit. In many American cities that has not happened. Some stations with strong service sit in areas that remain economically depressed, physically isolated, and short on pedestrian amenities.</p>
-      <p>This thesis treats that gap as a design and planning problem rather than a market problem, and one that falls hardest on the communities who depend on transit most.</p>
-      <p class="muted">The node-place model describes a station as both a node of connectivity and a place of land use. Later work added design quality and social vulnerability. The pedestrian environment, meaning the streets, crossings, and walking network between homes and stations, is still under-researched even though walking is the main way people reach transit. This research brings the four dimensions together and gives them equal weight.</p>
+      <p class="t-lead">Transit alone doesn't build a neighbourhood.</p>
+      <p>Transit-oriented development planning has long relied on Luca Bertolini's node-place model (1999), which plots stations on two axes: their value as a <em>node</em> in the transport network, and the intensity of the <em>place</em> around them. Where the two are balanced, a station is considered healthy. Where they diverge, it is flagged for attention.</p>
+      <p>Two dimensions flatten much of what decides whether a station area actually works. A station can have excellent service and a reasonable mix of land uses, yet be hostile to walk through, or serve a community with little access to opportunity. This thesis extends the model from two dimensions to four, adding <strong>Pedestrian</strong> and <strong>Social</strong>, and applies it to all 50 rapid-transit stations on Philadelphia's SEPTA network.</p>
+      <p class="muted">The purpose is diagnostic: to find the stations where transit investment is already strong but the surroundings, walkability, or community conditions have not kept pace. Those are the places where urban design can do the most good, because the hardest and most expensive piece, the rail line, is already in the ground.</p>
     </div>
   </section>
 
   <section class="t-block">
-    <h2>What it asks</h2>
+    <h2>The problem</h2>
     <div class="t-body">
-      <ul class="t-list">
-        <li>Which areas around Philadelphia's SEPTA stations have strong transit access but low development activity?</li>
-        <li>How do land use, economic, social, and pedestrian conditions differ around those stations?</li>
-        <li>Which three to five underperforming station areas deserve a closer urban design site analysis?</li>
-        <li>What site-specific design framework could activate them?</li>
-      </ul>
+      <p>The classic model asks one question: is a station's place as developed as its transit? That framing hides two things that shape how a station area performs on the ground.</p>
+      <div class="t-gaps">
+        <div class="t-gap">
+          <h3>The walk is folded into "place"</h3>
+          <p>Whether people can reach the station safely and comfortably on foot is treated as part of place, even though good sidewalks and a fine street grid are a different thing from density and destinations.</p>
+        </div>
+        <div class="t-gap">
+          <h3>The community is missing</h3>
+          <p>Who lives around the station, and whether they have access to opportunity, is absent entirely, even though equity is central to the case for public transit.</p>
+        </div>
+      </div>
+      <blockquote class="t-question">
+        <span>Research question</span>
+        <p>Can a four-dimensional extension of the node-place model, adding a Pedestrian and a Social dimension, identify stations whose surroundings underperform relative to their transit value, in ways the two-dimensional model cannot reveal?</p>
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="t-block">
+    <h2>The framework</h2>
+    <div class="t-body">
+      <div class="t-extend" aria-label="The original model has two dimensions, Node and Place. This research adds Pedestrian and Social.">
+        <div class="t-extend-col">
+          <p class="t-extend-cap">Bertolini, 1999</p>
+          <div class="t-axes">
+            <span class="ax ax-node">Node</span>
+            <span class="ax ax-place">Place</span>
+          </div>
+        </div>
+        <span class="t-extend-arrow" aria-hidden="true"></span>
+        <div class="t-extend-col">
+          <p class="t-extend-cap">This research</p>
+          <div class="t-axes t-axes-4">
+            <span class="ax ax-node">Node</span>
+            <span class="ax ax-place">Place</span>
+            <span class="ax ax-ped is-new">Pedestrian</span>
+            <span class="ax ax-social is-new">Social</span>
+          </div>
+        </div>
+      </div>
+      <p>Earlier studies extended the model one axis at a time. What's new here is bringing walkability and social equity into a single four-part measure. Each dimension is built from five variables, twenty in all.</p>
+      <div class="t-dims">
+        <div class="t-dim d-node">
+          <h3>Node</h3>
+          <p class="src">The station's value in the transit network</p>
+          <ul>
+            <li>Transit lines served</li>
+            <li>Service frequency (peak)</li>
+            <li>Transit stops within the catchment</li>
+            <li>Peak to off-peak service ratio</li>
+            <li>Service span (hours of operation)</li>
+          </ul>
+        </div>
+        <div class="t-dim d-place">
+          <h3>Place</h3>
+          <p class="src">The intensity and mix of activity around it</p>
+          <ul>
+            <li>Population density</li>
+            <li>Employment density</li>
+            <li>Land-use mix (entropy index)</li>
+            <li>Destination access (points of interest)</li>
+            <li>Vacancy <span class="rev">reversed</span></li>
+          </ul>
+        </div>
+        <div class="t-dim d-ped">
+          <h3>Pedestrian</h3>
+          <p class="src">The quality of the walking environment</p>
+          <ul>
+            <li>Pedshed (share of the catchment reachable on foot)</li>
+            <li>Intersection density</li>
+            <li>Pedestrian street quality (sidewalk width)</li>
+            <li>Crossing safety (High-Injury Network exposure)</li>
+            <li>Physical barriers <span class="rev">reversed</span></li>
+          </ul>
+        </div>
+        <div class="t-dim d-social">
+          <h3>Social</h3>
+          <p class="src">Equity and access to opportunity</p>
+          <ul>
+            <li>Median income</li>
+            <li>Households without a car <span class="rev">reversed</span></li>
+            <li>Minority population share <span class="rev">reversed</span></li>
+            <li>Elderly population share <span class="rev">reversed</span></li>
+            <li>Renter share <span class="rev">reversed</span></li>
+          </ul>
+        </div>
+      </div>
+      <p class="muted t-note">Reversed variables are flipped before scoring so that a higher value is always the "better" direction. On the Social dimension this means a lower score marks a community with greater need: more households without a car, lower incomes, more elderly residents. It lets the framework flag where strong transit is serving, or failing to serve, the people who depend on it most.</p>
+    </div>
+  </section>
+
+  <section class="t-block">
+    <h2>Why Philadelphia</h2>
+    <div class="t-body">
+      <p>Philadelphia's dense rail network was built for a much larger industrial population. Transit is strong, but many station areas were left behind as the city changed, and income and safety disparities are often sharpest exactly where transit is strongest.</p>
+      <p>The study covers 50 stations on the city's two rapid-transit lines: the Broad Street Line, the north-south subway (24 stations), and the Market-Frankford Line, the east-west line that runs elevated through much of the city (26 stations). Each is analysed within a half-mile catchment, the distance generally treated as a comfortable walk to transit. Regional Rail and the Norristown High-Speed Line are outside the scope.</p>
+      <figure class="t-fig" data-img-wrap="hide">
+        <img data-img="thesis-study-area" alt="Map of the 50 Broad Street Line and Market-Frankford Line stations with half-mile catchments" loading="lazy">
+        <figcaption>Study area: 50 stations with half-mile catchments</figcaption>
+      </figure>
     </div>
   </section>
 
   <section class="t-block">
     <h2>Method</h2>
     <div class="t-body">
-      <p>A two-stage investigation. Stage 1 uses GIS-based spatial analysis to score every SEPTA fixed-rail station area in Philadelphia on four equally weighted dimensions. Stage 2 is an in-depth urban design site analysis of the selected stations, identifying physical and design conditions that block development and producing site-specific recommendations.</p>
-      <figure class="t-fig" data-img-wrap="hide">
-        <img data-img="thesis-method" alt="Research method diagram">
-        <figcaption>Figure 1. Research method</figcaption>
-      </figure>
+      <p>The scoring is deliberately simple and transparent, so the results can be read and questioned.</p>
+      <ol class="t-steps">
+        <li><strong>Measure</strong><span class="st done">Done</span><span class="d">Twenty variables per station, from SEPTA service data, the U.S. Census and American Community Survey, OpenStreetMap and municipal GIS layers, the city's Complete Streets and High-Injury Network data, and points-of-interest data.</span></li>
+        <li><strong>Normalise</strong><span class="st done">Done</span><span class="d">Every variable is scaled from 0 to 1 using min-max normalisation. Six variables are reversed first so that higher is always better.</span></li>
+        <li><strong>Combine</strong><span class="st done">Done</span><span class="d">Equal weighting at both levels: five variables are averaged into each dimension score, and the four dimension scores are averaged into one overall TOD score.</span></li>
+        <li><strong>Diagnose</strong><span class="st done">Done</span><span class="d">Stations are ranked on every dimension, and four case stations are chosen to span the range from healthiest to weakest.</span></li>
+        <li><strong>Site analysis and field study</strong><span class="st">Next</span><span class="d">On-the-ground study of the physical and design conditions holding the underperforming stations back.</span></li>
+        <li><strong>Design proposals</strong><span class="st">Next</span><span class="d">Targeted urban design proposals matched to each station's diagnosis.</span></li>
+      </ol>
+      <p class="muted t-note">Why equal weights? Equal weighting is a transparent default supported in the TOD-index literature. It avoids building contestable assumptions about which factors "matter more" into what is meant to be a diagnostic tool, and it keeps any one measure from taking over.</p>
     </div>
   </section>
 
-  <section class="t-block">
-    <h2>Four dimensions, twenty variables</h2>
+  <section class="t-block" id="findings">
+    <h2>Findings</h2>
     <div class="t-body">
-      <p class="muted">Five measurable variables sit under each dimension, drawn from SEPTA GTFS, the U.S. Census, Philadelphia open data, OpenStreetMap, and Vision Zero.</p>
-      <div class="t-dims">
-        <div class="t-dim">
-          <h3>Node</h3>
-          <p class="src">Transit connectivity · SEPTA GTFS</p>
-          <ul>
-            <li>Number of transit lines</li>
-            <li>Service frequency</li>
-            <li>Multimodal and transfer connectivity</li>
-            <li>Destinations reachable within 30 minutes</li>
-            <li>Station accessibility</li>
-          </ul>
+      <p>Across the 50 stations, the four dimensions behave very differently. That is the central point: collapsing them into two would hide real and distinct patterns.</p>
+      <div class="t-range" role="table" aria-label="Score range for each dimension across 50 stations">
+        <div class="t-range-row t-range-head" role="row">
+          <span role="columnheader">Dimension</span><span role="columnheader">Range across 50 stations</span><span role="columnheader">Mean</span>
         </div>
-        <div class="t-dim">
-          <h3>Place</h3>
-          <p class="src">Land use and economy · Census, city open data</p>
-          <ul>
-            <li>Population density</li>
-            <li>Employment density</li>
-            <li>Land-use mix</li>
-            <li>Destination accessibility</li>
-            <li>Vacancy rate</li>
-          </ul>
+        <div class="t-range-row r-node" role="row"><span role="cell">Node</span><span role="cell" class="trk"><i style="--lo:.24;--hi:.72"></i><b style="--m:.43"></b><em class="lo">0.24</em><em class="hi" style="--hi:.72">0.72</em></span><span role="cell">0.43</span></div>
+        <div class="t-range-row r-place" role="row"><span role="cell">Place</span><span role="cell" class="trk"><i style="--lo:.22;--hi:.87"></i><b style="--m:.47"></b><em class="lo">0.22</em><em class="hi" style="--hi:.87">0.87</em></span><span role="cell">0.47</span></div>
+        <div class="t-range-row r-ped" role="row"><span role="cell">Pedestrian</span><span role="cell" class="trk"><i style="--lo:.21;--hi:.85"></i><b style="--m:.64"></b><em class="lo">0.21</em><em class="hi" style="--hi:.85">0.85</em></span><span role="cell">0.64</span></div>
+        <div class="t-range-row r-social" role="row"><span role="cell">Social</span><span role="cell" class="trk"><i style="--lo:.20;--hi:.83"></i><b style="--m:.49"></b><em class="lo">0.20</em><em class="hi" style="--hi:.83">0.83</em></span><span role="cell">0.49</span></div>
+        <div class="t-range-row r-overall" role="row"><span role="cell"><strong>Overall TOD</strong></span><span role="cell" class="trk"><i style="--lo:.34;--hi:.68"></i><b style="--m:.51"></b><em class="lo">0.34</em><em class="hi" style="--hi:.68">0.68</em></span><span role="cell"><strong>0.51</strong></span></div>
+        <p class="t-range-key">Bar shows lowest to highest station score on a 0 to 1 scale; the tick marks the mean.</p>
+      </div>
+
+      <div class="t-finds">
+        <article class="t-find f-node">
+          <span class="dim">Node</span>
+          <h3>How well connected is each station?</h3>
+          <div class="range"><div><b>0.72</b><small>Chinatown, highest</small></div><div><b>0.24</b><small>8th St (Spur), lowest</small></div></div>
+          <p>The weakest dimension on average. Connectivity peaks at the downtown interchanges and drops toward the ends of the lines, so strong transit is uneven rather than universal.</p>
+          <figure class="t-fig t-swap" data-img-wrap="hide">
+            <div class="t-swap-btns" role="group" aria-label="Map shown">
+              <button type="button" aria-pressed="true" data-show="0">Node score</button><button type="button" aria-pressed="false" data-show="1">Transit stops</button>
+            </div>
+            <img data-img="thesis-node" alt="Map of Node scores by station" loading="lazy">
+            <img data-img="thesis-node-stops" alt="Map of transit stops within each station catchment" loading="lazy" hidden>
+          </figure>
+        </article>
+        <article class="t-find f-place">
+          <span class="dim">Place</span>
+          <h3>What's built around each station?</h3>
+          <div class="range"><div><b>0.87</b><small>15th St/City Hall, highest</small></div><div><b>0.22</b><small>NRG, lowest</small></div></div>
+          <p>The widest spread of any dimension, and the one that divides the city most sharply. Center City catchments sit against near-empty ones like NRG, a stadium district with almost no residents.</p>
+          <figure class="t-fig t-swap" data-img-wrap="hide">
+            <div class="t-swap-btns" role="group" aria-label="Map shown">
+              <button type="button" aria-pressed="true" data-show="0">Place score</button><button type="button" aria-pressed="false" data-show="1">Vacancy</button>
+            </div>
+            <img data-img="thesis-place" alt="Map of Place scores by station" loading="lazy">
+            <img data-img="thesis-place-vacancy" alt="Map of vacancy within each station catchment" loading="lazy" hidden>
+          </figure>
+        </article>
+        <article class="t-find f-ped">
+          <span class="dim">Pedestrian</span>
+          <h3>Is it a good place to walk?</h3>
+          <div class="range"><div><b>0.85</b><small>Fairmount, highest</small></div><div><b>0.21</b><small>30th St, lowest</small></div></div>
+          <p>The strongest dimension citywide, thanks to Philadelphia's dense historic grid: 34 of 50 stations score 0.60 or more. At 30th St, highways and the rail corridor break up the walk.</p>
+          <figure class="t-fig t-swap" data-img-wrap="hide">
+            <div class="t-swap-btns" role="group" aria-label="Map shown">
+              <button type="button" aria-pressed="true" data-show="0">Pedestrian score</button><button type="button" aria-pressed="false" data-show="1">Street quality</button>
+            </div>
+            <img data-img="thesis-pedestrian" alt="Map of Pedestrian scores by station" loading="lazy">
+            <img data-img="thesis-pedestrian-street-quality" alt="Map of pedestrian street quality within each station catchment" loading="lazy" hidden>
+          </figure>
+        </article>
+        <article class="t-find f-social">
+          <span class="dim">Social</span>
+          <h3>Who does each station serve?</h3>
+          <div class="range"><div><b>0.83</b><small>Girard (Front St), highest</small></div><div><b>0.20</b><small>Allegheny, lowest</small></div></div>
+          <p>A clear north-south divide, with North Philadelphia consistently paler on the map, meaning greater need. Allegheny scores lowest, which is also where strong transit could do the most.</p>
+          <figure class="t-fig t-swap" data-img-wrap="hide">
+            <div class="t-swap-btns" role="group" aria-label="Map shown">
+              <button type="button" aria-pressed="true" data-show="0">Social score</button><button type="button" aria-pressed="false" data-show="1">Income</button>
+            </div>
+            <img data-img="thesis-social" alt="Map of Social scores by station" loading="lazy">
+            <img data-img="thesis-social-income" alt="Map of median income within each station catchment" loading="lazy" hidden>
+          </figure>
+        </article>
+      </div>
+
+      <h3 class="t-subhead">What the numbers reveal</h3>
+      <div class="t-reveals">
+        <div class="t-reveal">
+          <h4>Place divides the city most sharply</h4>
+          <p>World-class downtown catchments sit against near-empty ones. <button type="button" class="stn" data-stn="15th St/City Hall">15th St/City Hall</button> scores 0.87 on Place; <button type="button" class="stn" data-stn="NRG Station">NRG</button> scores 0.22.</p>
         </div>
-        <div class="t-dim">
-          <h3>Social</h3>
-          <p class="src">Vulnerability and equity · Census ACS</p>
-          <ul>
-            <li>Median household income</li>
-            <li>Car ownership rate</li>
-            <li>Racial composition</li>
-            <li>Elderly population</li>
-            <li>Renter proportion</li>
-          </ul>
+        <div class="t-reveal">
+          <h4>"Strong node, hollow place" is real and measurable</h4>
+          <p>A cluster of stations, led by <button type="button" class="stn" data-stn="Erie">Erie</button> on North Broad, have strong transit but weak surroundings: high vacancy, few destinations, and communities in need. These are the clearest underperformers.</p>
         </div>
-        <div class="t-dim">
-          <h3>Pedestrian Network</h3>
-          <p class="src">Walking environment · OpenStreetMap, city data, Vision Zero</p>
-          <ul>
-            <li>Pedshed ratio</li>
-            <li>Intersection density</li>
-            <li>Sidewalk coverage</li>
-            <li>Crossing infrastructure</li>
-            <li>Physical barriers</li>
-          </ul>
+        <div class="t-reveal">
+          <h4>Walkability is not the same as place</h4>
+          <p>Several South Broad stations, such as <button type="button" class="stn" data-stn="Oregon">Oregon</button> and <button type="button" class="stn" data-stn="Ellsworth-Federal">Ellsworth-Federal</button>, score high on Pedestrian but low on Place. The sidewalks are good; there is little to walk to. A two-axis model cannot make that distinction.</p>
         </div>
+        <div class="t-reveal">
+          <h4>The weakest stations fail for different reasons</h4>
+          <p>The lowest scores are scattered, not concentrated: a stadium district with no residents (<button type="button" class="stn" data-stn="NRG Station">NRG</button>), a downtown station hemmed in by highway and rail (<button type="button" class="stn" data-stn="30th St">30th St</button>), and disinvested residential areas (<button type="button" class="stn" data-stn="Allegheny">Allegheny</button>). That is why a multi-dimensional diagnosis is needed.</p>
+        </div>
+      </div>
+
+      <div class="t-overall">
+        <h3>All four together: an average TOD score of 0.51</h3>
+        <p>Center City stations lead, with Walnut-Locust highest at 0.68. The weakest stations cluster in North and West Philadelphia, with Allegheny lowest at 0.34. South Philadelphia sits in the middle, with good walkability but thinner development. A few edge stations near stadiums, rail yards, and water also score low.</p>
+        <figure class="t-fig" data-img-wrap="hide">
+          <img data-img="thesis-cover" alt="Map of overall TOD scores for the 50 station areas" loading="lazy">
+          <figcaption>Overall TOD score for each station area</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="t-block" id="stations">
+    <h2>All 50 stations</h2>
+    <div class="t-body">
+      <p>Sort by any dimension to see how the ranking shifts. Stations that lead on one measure often trail on another.</p>
+      <div class="sx-wrap">
+        <div class="sx-controls">
+          <span class="lbl" id="sxLbl">Line</span>
+          <div class="sx-filter" role="group" aria-labelledby="sxLbl">
+            <button type="button" data-line="all" aria-pressed="true">All</button>
+            <button type="button" data-line="BSL" aria-pressed="false">Broad Street</button>
+            <button type="button" data-line="MFL" aria-pressed="false">Market-Frankford</button>
+            <button type="button" data-line="Spur" aria-pressed="false">Broad-Ridge Spur</button>
+          </div>
+          <span class="sx-count" id="sxCount" aria-live="polite"></span>
+        </div>
+        <div class="sx-scroll">
+          <table class="sx" id="sxTable">
+            <thead>
+              <tr>
+                <th class="plain" scope="col"><span class="full">Rank</span><span class="short">#</span></th>
+                <th class="plain" scope="col">Station</th>
+                <th class="plain ln-h" scope="col">Line</th>
+                <th scope="col" data-k="2" data-name="node"><button type="button">Node</button></th>
+                <th scope="col" data-k="3" data-name="place"><button type="button">Place</button></th>
+                <th scope="col" data-k="4" data-name="pedestrian"><button type="button"><span class="full">Pedestrian</span><span class="short" aria-hidden="true">Ped.</span></button></th>
+                <th scope="col" data-k="5" data-name="social"><button type="button">Social</button></th>
+                <th scope="col" data-k="6" data-name="overall TOD score" aria-sort="descending"><button type="button"><span class="full">Overall TOD</span><span class="short" aria-hidden="true">TOD</span></button></th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <p class="sx-note">Scores 0 to 1, rounded to two decimals, so some stations appear tied. 15th St/City Hall appears twice in the source data, once per line.</p>
       </div>
     </div>
   </section>
 
   <section class="t-block">
-    <h2>Analysis</h2>
+    <h2>Case stations</h2>
     <div class="t-body">
-      <p>All twenty variables are standardised to a 0 to 1 range and combined with entropy weighting, so variables that differ more across stations carry more weight. Each station area receives four composite scores.</p>
-      <p>K-means clustering groups the station areas. The number of clusters is chosen with the elbow method and tested for stability across 1,000 trials. Areas with high node scores but low place, social, and pedestrian scores are flagged as underperforming and move to Stage 2.</p>
-      <figure class="t-fig" data-img-wrap="hide">
-        <img data-img="thesis-map" alt="Station catchment map">
-        <figcaption>Half-mile catchments around SEPTA fixed-rail stations, ArcGIS Pro</figcaption>
-      </figure>
+      <p>Four stations were studied in detail, chosen to span the range from the healthiest station area to the weakest, plus two that show the "strong node, weak surroundings" pattern the framework is built to detect. Each map shows land use within the half-mile catchment.</p>
+      <div class="t-cases">
+        <article class="t-case bench">
+          <span class="role">Benchmark: healthiest overall</span>
+          <h3>Walnut-Locust</h3>
+          <p class="ln">Broad Street Line · Overall rank 1 of 50</p>
+          <figure class="t-fig" data-img-wrap="hide"><img data-img="thesis-walnut-locust" alt="Land use within the Walnut-Locust station catchment" loading="lazy"></figure>
+          <table>
+            <tr><td>Node</td><td><span class="bar b-node" style="--v:.60"><i></i></span>0.60</td><td>#6</td></tr>
+            <tr><td>Place</td><td><span class="bar b-place" style="--v:.84"><i></i></span>0.84</td><td>#3</td></tr>
+            <tr><td>Pedestrian</td><td><span class="bar b-ped" style="--v:.77"><i></i></span>0.77</td><td>#10</td></tr>
+            <tr><td>Social</td><td><span class="bar b-social" style="--v:.52"><i></i></span>0.52</td><td>#15</td></tr>
+            <tr class="tot"><td>Overall</td><td><span class="bar b-overall" style="--v:.68"><i></i></span>0.68</td><td>#1</td></tr>
+          </table>
+          <p>The highest overall score in the study. Its Place and Pedestrian scores both sit well above its Node score: a well-rounded, high-functioning station area that shows what "good" looks like.</p>
+          <a class="map" href="https://maps.app.goo.gl/j6iTZzpzfccA8hKb6" target="_blank" rel="noopener">View on map ↗</a>
+        </article>
+        <article class="t-case">
+          <span class="role">Weakest overall</span>
+          <h3>Allegheny</h3>
+          <p class="ln">Broad Street Line · Overall rank 50 of 50</p>
+          <figure class="t-fig" data-img-wrap="hide"><img data-img="thesis-allegheny" alt="Land use within the Allegheny station catchment" loading="lazy"></figure>
+          <table>
+            <tr><td>Node</td><td><span class="bar b-node" style="--v:.34"><i></i></span>0.34</td><td>#46</td></tr>
+            <tr><td>Place</td><td><span class="bar b-place" style="--v:.30"><i></i></span>0.30</td><td>#46</td></tr>
+            <tr><td>Pedestrian</td><td><span class="bar b-ped" style="--v:.55"><i></i></span>0.55</td><td>#41</td></tr>
+            <tr><td>Social</td><td><span class="bar b-social" style="--v:.20"><i></i></span>0.20</td><td>#50</td></tr>
+            <tr class="tot"><td>Overall</td><td><span class="bar b-overall" style="--v:.34"><i></i></span>0.34</td><td>#50</td></tr>
+          </table>
+          <p>The lowest overall score, and the most disadvantaged catchment on the Social dimension. Weak across every dimension: the clearest case of a community underserved on all fronts.</p>
+          <a class="map" href="https://maps.app.goo.gl/vjcR3AuM1JNJ7afN8" target="_blank" rel="noopener">View on map ↗</a>
+        </article>
+        <article class="t-case flagship">
+          <span class="role">Flagship case: strong node, weak surroundings</span>
+          <h3>Erie</h3>
+          <p class="ln">Broad Street Line · Overall rank 30 of 50</p>
+          <figure class="t-fig" data-img-wrap="hide"><img data-img="thesis-erie" alt="Land use within the Erie station catchment" loading="lazy"></figure>
+          <table>
+            <tr><td>Node</td><td><span class="bar b-node" style="--v:.63"><i></i></span>0.63</td><td>#2</td></tr>
+            <tr><td>Place</td><td><span class="bar b-place" style="--v:.34"><i></i></span>0.34</td><td>#43</td></tr>
+            <tr><td>Pedestrian</td><td><span class="bar b-ped" style="--v:.65"><i></i></span>0.65</td><td>#28</td></tr>
+            <tr><td>Social</td><td><span class="bar b-social" style="--v:.27"><i></i></span>0.27</td><td>#49</td></tr>
+            <tr class="tot"><td>Overall</td><td><span class="bar b-overall" style="--v:.47"><i></i></span>0.47</td><td>#30</td></tr>
+          </table>
+          <p>The clearest demonstration of the thesis. Erie has the second-highest Node score in the study, yet its Place and Social scores are near the bottom. Judged on its transit alone it looks like one of the network's strongest stations; the four dimensions show a hollow place and a community in need.</p>
+          <a class="map" href="https://maps.app.goo.gl/QBb8yo29g8V6rqPP9" target="_blank" rel="noopener">View on map ↗</a>
+        </article>
+        <article class="t-case">
+          <span class="role">Strong node, weak surroundings</span>
+          <h3>Fern Rock</h3>
+          <p class="ln">Broad Street Line · Overall rank 38 of 50</p>
+          <figure class="t-fig" data-img-wrap="hide"><img data-img="thesis-fern-rock" alt="Land use within the Fern Rock station catchment" loading="lazy"></figure>
+          <table>
+            <tr><td>Node</td><td><span class="bar b-node" style="--v:.60"><i></i></span>0.60</td><td>#4</td></tr>
+            <tr><td>Place</td><td><span class="bar b-place" style="--v:.38"><i></i></span>0.38</td><td>#36</td></tr>
+            <tr><td>Pedestrian</td><td><span class="bar b-ped" style="--v:.39"><i></i></span>0.39</td><td>#47</td></tr>
+            <tr><td>Social</td><td><span class="bar b-social" style="--v:.42"><i></i></span>0.42</td><td>#32</td></tr>
+            <tr class="tot"><td>Overall</td><td><span class="bar b-overall" style="--v:.45"><i></i></span>0.45</td><td>#38</td></tr>
+          </table>
+          <p>The northern terminal of the Broad Street Line and a major transfer hub. High transit value, but weak place and especially weak pedestrian conditions, one of the poorest walking environments in the study.</p>
+          <a class="map" href="https://maps.app.goo.gl/muAJcbeBuuuvhsMVA" target="_blank" rel="noopener">View on map ↗</a>
+        </article>
+      </div>
     </div>
   </section>
 
   <section class="t-block">
-    <h2>Where it stands</h2>
+    <h2>Why it matters</h2>
     <div class="t-body">
-      <p>GTFS data for all 13 fixed-rail route identifiers has been collected and analysed, and half-mile catchment buffers have been built in ArcGIS Pro for every fixed-rail station inside the city limits. The datasets for the remaining fifteen variables have been identified and confirmed available.</p>
-      <p>Early mapping shows three patterns. The strongest node values concentrate in the inner city. Large parts of outer Philadelphia, including the Northeast, Far Northeast, and outer Southwest, have no walkable fixed-rail access and fall outside the study. And along well-served inner corridors, neighbouring stations differ sharply: some sit in active mixed-use settings while others, with equally good transit, are surrounded by largely empty streets. That contrast is the research condition this thesis sets out to explain.</p>
-      <p class="muted">North Philadelphia, where high-speed rail and Regional Rail come together, is the most viable candidate for site analysis so far.</p>
+      <p>The four-dimensional extension separates problems the two-axis view blurs together, and surfaces underperformance that a strong node would otherwise mask. A station like Erie, with strong transit, a hollow place, and a community in need, is exactly where a city should prioritise investment: the expensive infrastructure is already there and the need is high.</p>
+      <p>Isolating Pedestrian and Social also lets each station be matched to the right kind of intervention.</p>
+      <div class="t-diag">
+        <div class="t-diag-row">
+          <div class="t-diag-sym"><h3>Strong transit, hollow place</h3><p>Good service, high vacancy, few destinations, high need.</p></div>
+          <div class="t-diag-rx"><p>Prioritise development and community investment around the station.</p><p class="eg"><button type="button" class="stn" data-stn="Erie">Erie</button><button type="button" class="stn" data-stn="Fern Rock Transportation Center">Fern Rock</button></p></div>
+        </div>
+        <div class="t-diag-row">
+          <div class="t-diag-sym"><h3>Good to walk, little to walk to</h3><p>Excellent sidewalks and street grid, low Place score.</p></div>
+          <div class="t-diag-rx"><p>Land use and activity, not more pedestrian infrastructure.</p><p class="eg"><button type="button" class="stn" data-stn="Oregon">Oregon</button><button type="button" class="stn" data-stn="Ellsworth-Federal">Ellsworth-Federal</button><button type="button" class="stn" data-stn="Snyder">Snyder</button></p></div>
+        </div>
+        <div class="t-diag-row">
+          <div class="t-diag-sym"><h3>Cut off by barriers</h3><p>Strong surroundings, but highways and rail break up the walk.</p></div>
+          <div class="t-diag-rx"><p>Reconnect the walking network to the station.</p><p class="eg"><button type="button" class="stn" data-stn="30th St">30th St</button></p></div>
+        </div>
+        <div class="t-diag-row">
+          <div class="t-diag-sym"><h3>Weak on every dimension</h3><p>Low scores across transit, place, walking, and community.</p></div>
+          <div class="t-diag-rx"><p>A broader, equity-led strategy.</p><p class="eg"><button type="button" class="stn" data-stn="Allegheny">Allegheny</button></p></div>
+        </div>
+      </div>
+      <p class="muted t-note">Select a station name to see it on the network diagram.</p>
     </div>
   </section>
 
   <section class="t-block">
-    <h2>Conference</h2>
+    <h2>What's next</h2>
     <div class="t-body">
-      <p><strong>ACSA 2026 Intersections Research Conference: Urban Design Matters</strong><br>
-      Extending the Node-Place Model for TOD: Integrating Social Equity and Pedestrian Environment in Philadelphia<br>
-      <span class="muted">Urvi Patel, Peng Du &amp; Irene Amankwah Bonsu · Session: Alternative Urban Narratives, Place &amp; Everyday Life · New York Institute of Technology · October 3, 2026</span></p>
+      <p>The next stage moves from the map to the street: site analysis and field study of the underperforming stations, followed by targeted urban design proposals matched to each one's diagnosis. The thesis completes in December 2026.</p>
+    </div>
+  </section>
+
+  <section class="t-block">
+    <h2>Presented</h2>
+    <div class="t-body">
+      <p><strong>2026 Intersections Research Conference: Urban Design Matters</strong><br>
+      ACSA, in partnership with the Urban Design Advisory Council (UDAC) and the AIA Regional and Urban Design Committee (AIA RUDC)<br>
+      <span class="muted">Session: Alternative Urban Narratives, Place &amp; Everyday Life · New York Institute of Technology · October 3, 2026</span></p>
+      <p>The full paper will be submitted for publication in November 2026.</p>
       <div class="t-links">
+        <a href="Thesis-ACSA-2026-Slides.pdf" target="_blank" rel="noopener" class="btn btn-outline" id="slidesBtn" hidden>View Conference Slides (PDF)</a>
         <a href="https://storymaps.arcgis.com/stories/4d344e0b529c44e48973544baea5a173" target="_blank" rel="noopener" class="btn btn-outline">Related GIS StoryMap ↗</a>
         <a href="research.html" class="btn btn-outline">More Research</a>
       </div>
+    </div>
+  </section>
+
+  <section class="t-block">
+    <h2>Credits</h2>
+    <div class="t-body">
+      <dl class="t-credits">
+        <div><dt>Author</dt><dd>Urvi Patel</dd></div>
+        <div><dt>Co-authors</dt><dd>Dr. Peng Du (thesis advisor), Irene Amankwah Bonsu</dd></div>
+        <div><dt>Institution</dt><dd>Thomas Jefferson University, Master of Urban Design, Future Cities</dd></div>
+        <div><dt>Analysis</dt><dd>50 SEPTA rapid-transit stations, 20 variables across four dimensions, half-mile catchments, min-max normalised and equally weighted. Maps by the author in ArcGIS Pro.</dd></div>
+      </dl>
     </div>
   </section>
 
@@ -252,12 +776,196 @@
     document.querySelectorAll('img[data-img]').forEach(function (img) {
       var base = img.getAttribute('data-img'), i = 0, wrap = img.closest('[data-img-wrap]');
       function next() {
-        if (i >= exts.length) { if (wrap) wrap.style.display = 'none'; else img.style.display = 'none'; return; }
+        if (i >= exts.length) {
+          var swap = img.closest('.t-swap');
+          if (swap && img !== swap.querySelector('img')) { var bt = swap.querySelector('.t-swap-btns'); if (bt) bt.style.display = 'none'; return; }
+          if (wrap) wrap.style.display = 'none'; else img.style.display = 'none'; return;
+        }
         img.src = base + '.' + exts[i++];
       }
       img.onerror = next;
       next();
     });
+  })();
+  /* Station explorer: data from the ACSA 2026 presentation (scores 0 to 1). Order = overall TOD ranking at full precision. */
+  (function () {
+    var S = window.THESIS_STATIONS = [["Walnut-Locust","BSL",0.6,0.84,0.77,0.52,0.68],["15th St/City Hall","BSL/MFL",0.59,0.85,0.76,0.47,0.67],["15th St/City Hall","BSL/MFL",0.52,0.87,0.78,0.46,0.66],["Chinatown","Spur",0.72,0.59,0.7,0.6,0.65],["13th St","MFL",0.53,0.8,0.76,0.49,0.65],["11th St","MFL",0.51,0.75,0.75,0.5,0.63],["Race-Vine","BSL",0.55,0.68,0.74,0.46,0.61],["Lombard-South","BSL",0.42,0.63,0.81,0.57,0.61],["Girard (Front St)","MFL",0.36,0.46,0.77,0.83,0.61],["Ellsworth-Federal","BSL",0.38,0.44,0.85,0.71,0.6],["8th St","MFL",0.46,0.7,0.7,0.51,0.59],["Berks","MFL",0.37,0.38,0.83,0.78,0.59],["Fairmount","BSL",0.5,0.42,0.85,0.49,0.56],["Oregon","BSL",0.37,0.38,0.81,0.7,0.56],["5th St/Independence Hall","MFL",0.43,0.63,0.6,0.57,0.56],["York-Dauphin","MFL",0.61,0.28,0.68,0.66,0.56],["Girard (Broad St)","BSL",0.6,0.38,0.77,0.47,0.55],["Spring Garden","BSL",0.45,0.47,0.78,0.48,0.55],["Snyder","BSL",0.36,0.41,0.78,0.65,0.55],["Tasker-Morris","BSL",0.35,0.42,0.72,0.65,0.55],["Spring Garden","MFL",0.34,0.47,0.53,0.83,0.54],["8th St","Spur",0.24,0.7,0.69,0.51,0.54],["Tioga","MFL",0.59,0.42,0.57,0.46,0.51],["40th St","MFL",0.44,0.5,0.66,0.35,0.49],["2nd St","MFL",0.38,0.56,0.38,0.6,0.48],["Erie-Torresdale","MFL",0.49,0.41,0.52,0.51,0.48],["34th St","MFL",0.41,0.58,0.54,0.36,0.47],["Frankford Transportation Center","MFL",0.42,0.4,0.55,0.51,0.47],["Huntingdon","MFL",0.36,0.27,0.68,0.57,0.47],["Erie","BSL",0.63,0.34,0.65,0.27,0.47],["46th St","MFL",0.36,0.43,0.68,0.4,0.47],["Kensington-Allegheny","MFL",0.36,0.4,0.65,0.44,0.46],["Hunting Park","BSL",0.51,0.4,0.58,0.34,0.46],["Somerset","MFL",0.35,0.31,0.67,0.5,0.46],["Church","MFL",0.36,0.42,0.57,0.47,0.45],["Logan","BSL",0.43,0.39,0.63,0.35,0.45],["Cecil B. Moore","BSL",0.35,0.43,0.62,0.4,0.45],["Fern Rock Transportation Center","BSL",0.6,0.38,0.39,0.42,0.45],["Arrott Transportation Center","MFL",0.37,0.37,0.61,0.41,0.44],["56th St","MFL",0.36,0.36,0.65,0.32,0.42],["52nd St","MFL",0.35,0.36,0.65,0.32,0.42],["60th St","MFL",0.36,0.35,0.64,0.32,0.42],["Susquehanna-Dauphin","BSL",0.37,0.3,0.61,0.38,0.42],["Wyoming","BSL",0.34,0.37,0.58,0.36,0.41],["30th St","MFL",0.41,0.61,0.21,0.42,0.41],["63rd St","MFL",0.35,0.36,0.51,0.33,0.39],["NRG Station","BSL",0.32,0.22,0.33,0.66,0.38],["Olney Transportation Center","BSL",0.25,0.39,0.54,0.28,0.37],["North Philadelphia","BSL",0.3,0.23,0.58,0.31,0.36],["Allegheny","BSL",0.34,0.3,0.55,0.2,0.34]];
+    var CASES = { 'Walnut-Locust': 1, 'Allegheny': 1, 'Erie': 1, 'Fern Rock Transportation Center': 1 };
+    var LINES = { BSL: 'Broad Street', MFL: 'Market-Frankford', Spur: 'Broad-Ridge Spur', 'BSL/MFL': 'BSL / MFL' };
+    var table = document.getElementById('sxTable');
+    if (!table) return;
+    var tbody = table.querySelector('tbody'), count = document.getElementById('sxCount');
+    var sortKey = 6, dir = -1, line = 'all';
+    S.forEach(function (r, i) { r.i = i; });
+    function bar(v) { return '<span class="bar" style="--v:' + v + '"><i></i></span>' + v.toFixed(2); }
+    function render() {
+      var rows = S.filter(function (r) { return line === 'all' || r[1] === line || (r[1] === 'BSL/MFL' && line !== 'Spur'); });
+      rows.sort(function (a, b) { return (a[sortKey] - b[sortKey]) * dir || (a.i - b.i) * (dir < 0 ? 1 : -1); });
+      tbody.innerHTML = rows.map(function (r, n) {
+        var html = '<tr' + (CASES[r[0]] ? ' class="case"' : '') + '><td class="rk">' + (n + 1) + '</td><td class="nm">' + r[0] + (CASES[r[0]] ? '<span class="tag">Case</span>' : '') + '</td><td class="ln">' + LINES[r[1]] + '</td>';
+        for (var k = 2; k <= 6; k++) html += '<td class="sc' + (k === sortKey ? ' on' : '') + '">' + bar(r[k]) + '</td>';
+        return html + '</tr>';
+      }).join('');
+      count.textContent = rows.length + ' stations, ranked by ' + table.querySelector('th[data-k="' + sortKey + '"]').getAttribute('data-name') + (dir < 0 ? ', highest first' : ', lowest first');
+      table.querySelectorAll('th[data-k]').forEach(function (th) {
+        if (+th.getAttribute('data-k') === sortKey) th.setAttribute('aria-sort', dir < 0 ? 'descending' : 'ascending');
+        else th.removeAttribute('aria-sort');
+      });
+    }
+    table.querySelectorAll('th[data-k] button').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var k = +b.parentNode.getAttribute('data-k');
+        if (k === sortKey) dir = -dir; else { sortKey = k; dir = -1; }
+        render();
+      });
+    });
+    document.querySelectorAll('.sx-filter button').forEach(function (b) {
+      b.addEventListener('click', function () {
+        line = b.getAttribute('data-line');
+        document.querySelectorAll('.sx-filter button').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+        render();
+      });
+    });
+    window.sxSort = function (k) { sortKey = k; dir = -1; render(); };
+    render();
+  })();
+
+
+  /* Network diagram: schematic of the three lines, stations coloured by the selected dimension */
+  (function () {
+    var S = window.THESIS_STATIONS, svg = document.getElementById('nwSvg'), info = document.getElementById('nwInfo');
+    if (!S || !svg) return;
+    var NS = 'http://www.w3.org/2000/svg';
+    function find(name, line) { for (var i = 0; i < S.length; i++) if (S[i][0] === name && (!line || S[i][1] === line)) return S[i]; }
+    var short = { 'Fern Rock Transportation Center': 'Fern Rock', 'Olney Transportation Center': 'Olney', 'Frankford Transportation Center': 'Frankford', 'Arrott Transportation Center': 'Arrott', '5th St/Independence Hall': '5th St', 'NRG Station': 'NRG', 'Cecil B. Moore': 'Cecil B. Moore' };
+    var P = [], X = 470, Y = 362;
+    var north = ['Fern Rock Transportation Center','Olney Transportation Center','Logan','Wyoming','Hunting Park','Erie','Allegheny','North Philadelphia','Susquehanna-Dauphin','Cecil B. Moore','Girard (Broad St)','Fairmount','Spring Garden','Race-Vine'];
+    north.forEach(function (n, i) { P.push({ r: find(n, n === 'Spring Garden' ? 'BSL' : 0), x: X, y: 30 + i * 23, lx: -12, ly: 4, a: 'end' }); });
+    ['Walnut-Locust','Lombard-South','Ellsworth-Federal','Tasker-Morris','Snyder','Oregon','NRG Station'].forEach(function (n, i) { P.push({ r: find(n), x: X, y: 409 + i * 23, lx: -12, ly: 4, a: 'end' }); });
+    ['63rd St','60th St','56th St','52nd St','46th St','40th St','34th St','30th St'].forEach(function (n, i) { P.push({ r: find(n), x: 102 + i * 44, y: Y, lx: -6, ly: -12, a: 'end', rot: 45 }); });
+    [['13th St'],['11th St'],['8th St','MFL'],['5th St/Independence Hall'],['2nd St']].forEach(function (n, i) { P.push({ r: find(n[0], n[1]), x: 520 + i * 40, y: Y, lx: 6, ly: 14, a: 'start', rot: 45 }); });
+    P.push({ r: find('Spring Garden', 'MFL'), x: 720, y: 322, lx: 12, ly: 4, a: 'start' });
+    ['Girard (Front St)','Berks','York-Dauphin','Huntingdon','Somerset','Kensington-Allegheny'].forEach(function (n, i) { P.push({ r: find(n), x: 720, y: 298 - i * 24, lx: 12, ly: 4, a: 'start' }); });
+    ['Tioga','Erie-Torresdale','Church','Arrott Transportation Center','Frankford Transportation Center'].forEach(function (n, i) { P.push({ r: find(n), x: 744 + i * 24, y: 154 - i * 24, lx: 12, ly: 4, a: 'start' }); });
+    P.push({ r: find('Chinatown'), x: 500, y: 324, lx: 2, ly: -12, a: 'start' });
+    P.push({ r: find('8th St', 'Spur'), x: 590, y: 324, lx: 0, ly: -12, a: 'middle' });
+    var hubs = S.filter(function (r) { return r[1] === 'BSL/MFL'; });
+    P.push({ r: hubs[0], x: X - 9, y: Y, lx: -12, ly: 23, a: 'end', label: '15th St/City Hall' });
+    P.push({ r: hubs[1], x: X + 9, y: Y, lx: 0, ly: 0, a: 'start', label: '' });
+
+    function el(tag, attrs, parent) { var e = document.createElementNS(NS, tag); for (var k in attrs) e.setAttribute(k, attrs[k]); (parent || svg).appendChild(e); return e; }
+    el('path', { 'class': 'line mfl', d: 'M102 362 H680 L720 322 V178 L840 58' });
+    el('path', { 'class': 'line bsl', d: 'M470 30 V547' });
+    el('path', { 'class': 'line spur', d: 'M470 294 L500 324 H590' });
+    el('rect', { x: X - 19, y: Y - 10, width: 38, height: 20, rx: 10, fill: '#fff', stroke: 'var(--ink)', 'stroke-width': 1.5 });
+    var t;
+    t = el('text', { 'class': 'lname', x: 482, y: 570 }); t.textContent = 'Broad Street Line';
+    t = el('text', { 'class': 'lname', x: 102, y: 392 }); t.textContent = 'Market-Frankford Line';
+    t = el('text', { 'class': 'lname', x: 512, y: 348 }); t.textContent = 'Broad-Ridge Spur';
+
+    var defs = el('defs', {}), lg = el('linearGradient', { id: 'nwGrad' }, defs);
+    var stopLo = el('stop', { offset: '0', 'stop-color': '#F2EFE9' }, lg), stopHi = el('stop', { offset: '1', 'stop-color': '#9A2457' }, lg);
+    el('rect', { x: 102, y: 520, width: 160, height: 8, fill: 'url(#nwGrad)', stroke: '#C7C2B8', 'stroke-width': .75 });
+    t = el('text', { 'class': 'leg', x: 102, y: 545 }); t.textContent = 'Lower';
+    t = el('text', { 'class': 'leg', x: 262, y: 545, 'text-anchor': 'end' }); t.textContent = 'Higher';
+    t = el('text', { 'class': 'leg', x: 102, y: 510 }); t.textContent = 'Score in selected dimension';
+    var LINE = { BSL: 'Broad Street Line', MFL: 'Market-Frankford Line', Spur: 'Broad-Ridge Spur', 'BSL/MFL': 'Interchange: Broad Street and Market-Frankford Lines' };
+    var NAMES = ['Node', 'Place', 'Pedestrian', 'Social'];
+    var key = 6, sel = null, nodes = [], hoverLock = 0;
+    P.forEach(function (p) {
+      if (!p.r) return;
+      var g = el('g', { 'class': 'st', tabindex: 0, role: 'button' });
+      p.c = el('circle', { cx: p.x, cy: p.y, r: p.r[1] === 'BSL/MFL' ? 6.5 : 7 }, g);
+      var name = p.label !== undefined ? p.label : (short[p.r[0]] || p.r[0]);
+      if (name) {
+        var tx = el('text', { 'class': 'lbl', x: p.x + p.lx, y: p.y + p.ly, 'text-anchor': p.a }, g);
+        if (p.rot) tx.setAttribute('transform', 'rotate(' + p.rot + ' ' + (p.x + p.lx) + ' ' + (p.y + p.ly) + ')');
+        tx.textContent = name;
+      }
+      p.g = g; nodes.push(p);
+      function pick() { select(p); }
+      g.addEventListener('click', pick);
+      g.addEventListener('mouseenter', function () { if (Date.now() > hoverLock) pick(); });
+      g.addEventListener('focus', pick);
+      g.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(); } });
+    });
+
+    function mix(a, b, t) { return '#' + [0, 2, 4].map(function (i) { var v = Math.round(parseInt(a.substr(i, 2), 16) * (1 - t) + parseInt(b.substr(i, 2), 16) * t); return ('0' + v.toString(16)).slice(-2); }).join(''); }
+    var LIGHT = 'F2EFE9', DIM = { 2: '2B4675', 3: '3E6438', 4: 'B08A1A', 5: '7E4790', 6: '9A2457' };
+    function colour(v, k) {
+      if (k === undefined) k = key;
+      var vals = S.map(function (r) { return r[k]; }), lo = Math.min.apply(0, vals), hi = Math.max.apply(0, vals);
+      var t = (v - lo) / (hi - lo);
+      return mix(LIGHT, DIM[k], .06 + t * .94);
+    }
+    function rank(r, k) { var n = 1; S.forEach(function (o) { if (o[k] > r[k] || (o[k] === r[k] && o.i < r.i)) n++; }); return n; }
+    function select(p) {
+      sel = p;
+      nodes.forEach(function (q) { q.g.classList.toggle('sel', q === p); });
+      var r = p.r, rows = '';
+      [2, 3, 4, 5, 6].forEach(function (k) {
+        rows += '<tr' + (k === key ? ' class="on"' : '') + '><td><span class="sw" style="background:' + colour(r[k], k) + '"></span>' + (k === 6 ? 'Overall TOD' : NAMES[k - 2]) + '</td><td>' + r[k].toFixed(2) + (k === 6 ? ' <span style="color:var(--ink-muted);font-weight:400">#' + rank(r, k) + '</span>' : '') + '</td></tr>';
+      });
+      info.innerHTML = '<h3>' + r[0] + '</h3><p class="ln">' + LINE[r[1]] + '</p><table>' + rows + '</table>';
+    }
+    function paint() {
+      stopHi.setAttribute('stop-color', '#' + DIM[key]);
+      nodes.forEach(function (p) {
+        p.c.setAttribute('fill', colour(p.r[key]));
+        p.g.setAttribute('aria-label', p.r[0] + ', ' + (key === 6 ? 'overall TOD' : NAMES[key - 2]) + ' ' + p.r[key].toFixed(2));
+      });
+      if (sel) select(sel);
+    }
+    document.querySelectorAll('.nw-tabs button').forEach(function (b) {
+      b.addEventListener('click', function () {
+        key = +b.getAttribute('data-k');
+        document.querySelectorAll('.nw-tabs button').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+        paint();
+        if (window.sxSort) window.sxSort(key);
+      });
+    });
+    var narrow = window.matchMedia('(max-width: 600px)');
+    function fit() {
+      svg.setAttribute('viewBox', narrow.matches ? '70 20 900 560' : '0 0 1000 580');
+      nodes.forEach(function (p) { p.c.setAttribute('r', narrow.matches ? 12 : (p.r[1] === 'BSL/MFL' ? 6.5 : 7)); });
+    }
+    if (narrow.addEventListener) narrow.addEventListener('change', fit);
+    fit();
+    paint();
+    var start = nodes.filter(function (p) { return p.r[0] === 'Erie'; })[0];
+    if (start) select(start);
+    window.nwSelect = function (name) {
+      var p = nodes.filter(function (q) { return q.r[0] === name; })[0];
+      if (!p) return;
+      hoverLock = Date.now() + 1500;
+      select(p);
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      document.getElementById('network').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
+    };
+  })();
+
+  /* Station names in the text: show that station on the network diagram */
+  document.querySelectorAll('button.stn').forEach(function (b) {
+    b.addEventListener('click', function () { if (window.nwSelect) window.nwSelect(b.getAttribute('data-stn')); });
+  });
+
+  /* Map toggles on the finding cards (dimension score / one of its variables) */
+  document.querySelectorAll('.t-swap').forEach(function (fig) {
+    var btns = fig.querySelectorAll('.t-swap-btns button'), imgs = fig.querySelectorAll('img');
+    btns.forEach(function (b) {
+      b.addEventListener('click', function () {
+        var n = +b.getAttribute('data-show');
+        btns.forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+        imgs.forEach(function (im, i) { im.hidden = i !== n; });
+      });
+    });
+  });
+
+  /* Conference slides button: shows only once Thesis-ACSA-2026-Slides.pdf is uploaded */
+  (function () {
+    var btn = document.getElementById('slidesBtn');
+    if (!btn || !window.fetch) return;
+    fetch(btn.getAttribute('href'), { method: 'HEAD' }).then(function (r) { if (r.ok) btn.hidden = false; }).catch(function () {});
   })();
 </script>
 </body>

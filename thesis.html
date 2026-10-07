@@ -263,6 +263,70 @@ button.stn:focus-visible { outline:2px solid var(--accent); outline-offset:2px; 
   .t-credits div { grid-template-columns:1fr; gap:.15rem; }
 }
 @media (max-width: 420px) { .t-axes, .t-axes-4 { grid-template-columns:repeat(2, 6.4rem); } .t-extend-arrow { transform:rotate(90deg); margin:0 auto; } }
+/* ---- Thesis v5 (Oct 7 2026): image-led layout built around her exported slides ---- */
+.t-block { row-gap: var(--space-4); }
+.t-block > .t-after { grid-column: 2; }
+.t-block > .t-wide { grid-column: 1 / -1; }
+.t-plate { margin:0; border:1px solid var(--line); background:var(--surface); position:relative; }
+.t-plate img { width:100%; height:auto; display:block; cursor:zoom-in; }
+.t-plate figcaption { padding:.75rem 1rem; font-size:.86rem; color:var(--ink-muted); border-top:1px solid var(--line); line-height:1.5; }
+.t-plate figcaption b { color:var(--ink); font-weight:600; margin-right:.4rem; }
+.t-zoom { position:absolute; right:.6rem; bottom:.6rem; z-index:2; font:inherit; font-size:.76rem; background:rgba(255,255,255,.92); border:1px solid var(--line-strong); padding:.3em .7em; cursor:pointer; color:var(--ink); }
+.t-plate figcaption ~ .t-zoom, .t-plate:has(figcaption:not([hidden])) .t-zoom { bottom:3.4rem; }
+.t-zoom:hover { border-color:var(--ink); }
+.t-zoom:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+/* Chapters: text beside a large figure */
+.t-chapter, .t-case-row { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,2.1fr); gap:var(--space-5); align-items:start; padding-top:var(--space-4); border-top:1px solid var(--line); }
+.t-chapter-text, .t-case-text { position:sticky; top:5.5rem; }
+.t-chapter .dim { font-size:.82rem; font-weight:600; display:inline-flex; align-items:center; gap:.5rem; }
+.t-chapter .dim::before { content:""; width:.9rem; height:.9rem; background:var(--c, var(--accent)); }
+.f-node { --c:var(--c-node); } .f-place { --c:var(--c-place); } .f-ped { --c:var(--c-ped); } .f-social { --c:var(--c-social); } .f-overall { --c:var(--c-overall); }
+.t-chapter h3 { font-size:clamp(1.35rem,2.2vw,1.7rem); font-weight:800; line-height:1.15; margin:.5rem 0 1rem; }
+.t-chapter p, .t-case-text p { font-size:.95rem; margin:0 0 .8rem; }
+.t-nums { display:flex; flex-wrap:wrap; gap:.8rem 1.6rem; margin:0 0 1rem; padding:.7rem 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+.t-nums div { display:flex; flex-direction:column-reverse; }
+.t-nums dt { font-size:.74rem; color:var(--ink-muted); }
+.t-nums dd { margin:0; font-family:var(--font-display); font-weight:800; font-size:1.35rem; line-height:1.15; }
+.t-nums dd small { display:block; font-family:var(--font-body); font-weight:500; font-size:.74rem; color:var(--ink-muted); }
+.t-chapter p.t-read { font-size:.85rem; color:var(--ink-muted); }
+/* Case rows */
+.t-case-row.t-flip { grid-template-columns:minmax(0,2.1fr) minmax(0,1fr); }
+.t-case-row.t-flip .t-case-text { order:2; }
+.t-case-text .role { font-size:.82rem; color:var(--accent); font-weight:600; }
+.t-case-text h3 { font-size:clamp(1.5rem,2.6vw,2rem); font-weight:800; margin:.2rem 0 .1rem; }
+.t-case-text .ln { font-size:.84rem; color:var(--ink-muted); }
+.t-case-row.flagship .t-case-text h3::after { content:"Flagship"; margin-left:.6rem; vertical-align:middle; font-family:var(--font-body); font-size:.7rem; font-weight:600; color:#fff; background:var(--ink); padding:.2em .55em; }
+.t-scores { width:100%; border-collapse:collapse; font-size:.86rem; margin:.9rem 0 1rem; }
+.t-scores td { padding:.32rem 0; border-top:1px solid var(--line); }
+.t-scores td:first-child { width:6.5rem; }
+.t-scores td:last-child { text-align:right; font-family:var(--font-mono); font-size:.76rem; color:var(--ink-muted); width:3rem; }
+.t-scores tr.tot td { font-weight:600; border-top:1px solid var(--ink); }
+.t-scores .bar { display:inline-block; vertical-align:middle; width:calc(100% - 3.2rem); max-width:150px; height:6px; background:var(--paper); border:1px solid var(--line); position:relative; margin-right:.5rem; }
+.t-scores .bar i { position:absolute; top:0; bottom:0; left:0; width:calc(var(--v) * 100%); background:var(--c, var(--accent)); }
+.t-case-text a.map { font-size:.86rem; color:var(--accent); }
+/* Misc */
+.t-status { font-size:.9rem; display:flex; flex-wrap:wrap; gap:.4rem .8rem; align-items:center; }
+.t-status span { font-family:var(--font-mono); font-size:.66rem; letter-spacing:.06em; text-transform:uppercase; border:1px solid var(--line-strong); color:var(--ink-muted); padding:.15em .5em; }
+.t-status span.done { border-color:var(--accent); color:var(--accent); }
+.t-vars { border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+.t-vars summary { cursor:pointer; padding:.8rem 0; font-weight:600; color:var(--accent); }
+.t-vars summary:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+.t-vars .t-dims { margin:0 0 var(--space-3); }
+.t-body h3.t-subhead { margin-top:var(--space-2); }
+/* Lightbox */
+.t-lightbox { border:0; padding:0; background:transparent; max-width:96vw; max-height:94vh; }
+.t-lightbox::backdrop { background:rgba(22,25,29,.86); }
+.t-lightbox img { display:block; max-width:96vw; max-height:94vh; width:auto; height:auto; background:#fff; }
+.t-lb-close { position:fixed; top:1rem; right:1rem; font:inherit; font-size:.85rem; background:#fff; border:0; padding:.5em 1em; cursor:pointer; }
+.t-lb-close:focus-visible { outline:2px solid #fff; outline-offset:2px; }
+@media (max-width: 900px) {
+  .t-chapter, .t-case-row, .t-case-row.t-flip { grid-template-columns:1fr; gap:var(--space-3); }
+  .t-case-row.t-flip .t-case-text { order:0; }
+  .t-chapter-text, .t-case-text { position:static; }
+}
+@media (max-width: 800px) {
+  .t-block > .t-after, .t-block > .t-wide { grid-column:1 / -1; }
+}
 </style>
 </head>
 <body>
@@ -327,9 +391,9 @@ button.stn:focus-visible { outline:2px solid var(--accent); outline-offset:2px; 
     <h2>Overview</h2>
     <div class="t-body">
       <p class="t-lead">Transit alone doesn't build a neighbourhood.</p>
-      <p>Transit-oriented development planning has long relied on Luca Bertolini's node-place model (1999), which plots stations on two axes: their value as a <em>node</em> in the transport network, and the intensity of the <em>place</em> around them. Where the two are balanced, a station is considered healthy. Where they diverge, it is flagged for attention.</p>
-      <p>Two dimensions flatten much of what decides whether a station area actually works. A station can have excellent service and a reasonable mix of land uses, yet be hostile to walk through, or serve a community with little access to opportunity. This thesis extends the model from two dimensions to four, adding <strong>Pedestrian</strong> and <strong>Social</strong>, and applies it to all 50 rapid-transit stations on Philadelphia's SEPTA network.</p>
-      <p class="muted">The purpose is diagnostic: to find the stations where transit investment is already strong but the surroundings, walkability, or community conditions have not kept pace. Those are the places where urban design can do the most good, because the hardest and most expensive piece, the rail line, is already in the ground.</p>
+      <p>Across a rail network, some station areas thrive while others with the same strong transit stay underused. Transit-oriented development planning has long read stations through Luca Bertolini's node-place model (1999): a station's value as a <em>node</em> in the network, set against the intensity of the <em>place</em> around it.</p>
+      <p>Two dimensions flatten much of what decides whether a station area actually works. A station can have excellent service and a reasonable mix of land uses, yet be hostile to walk through, or serve a community with little access to opportunity. This thesis extends the model to four dimensions and applies it to all 50 rapid-transit stations on Philadelphia's SEPTA network.</p>
+      <p class="muted">The purpose is diagnostic: to find stations where transit investment is already strong but the surroundings, walkability, or community have not kept pace. Those are the places where urban design can do the most good, because the hardest and most expensive piece, the rail line, is already in the ground.</p>
     </div>
   </section>
 
@@ -340,7 +404,7 @@ button.stn:focus-visible { outline:2px solid var(--accent); outline-offset:2px; 
       <div class="t-gaps">
         <div class="t-gap">
           <h3>The walk is folded into "place"</h3>
-          <p>Whether people can reach the station safely and comfortably on foot is treated as part of place, even though good sidewalks and a fine street grid are a different thing from density and destinations.</p>
+          <p>Whether people can reach the station safely on foot is treated as part of place, even though good sidewalks and a fine street grid are a different thing from density and destinations.</p>
         </div>
         <div class="t-gap">
           <h3>The community is missing</h3>
@@ -357,73 +421,29 @@ button.stn:focus-visible { outline:2px solid var(--accent); outline-offset:2px; 
   <section class="t-block">
     <h2>The framework</h2>
     <div class="t-body">
-      <div class="t-extend" aria-label="The original model has two dimensions, Node and Place. This research adds Pedestrian and Social.">
-        <div class="t-extend-col">
-          <p class="t-extend-cap">Bertolini, 1999</p>
-          <div class="t-axes">
-            <span class="ax ax-node">Node</span>
-            <span class="ax ax-place">Place</span>
-          </div>
+      <p>Earlier studies extended the model one axis at a time. What's new here is bringing walkability and social equity into a single four-part measure, so each station is read on Node, Place, Pedestrian, and Social at once.</p>
+    </div>
+    <figure class="t-plate t-wide" data-img-wrap="hide">
+      <img data-img="Slide3" alt="Diagram comparing Bertolini's original two-axis node-place model with the extended four-dimension model" loading="lazy">
+      <figcaption><b>Figure 1</b> From two axes to four. The original model reads balance between node and place; the extension adds Pedestrian and Social, and treats a station as underperforming when its node is strong but the other dimensions are weak.</figcaption>
+    </figure>
+    <div class="t-body t-after">
+      <p>Each dimension is built from five measures, twenty in all. Five of them are reversed before scoring so that higher is always better. On the Social dimension this means a lower score marks a community with greater need.</p>
+    </div>
+    <figure class="t-plate t-wide" data-img-wrap="hide">
+      <img data-img="Slide8" alt="The four dimensions measured at every station: Node, Place, Pedestrian and Social, with five measures each" loading="lazy">
+      <figcaption><b>Figure 2</b> The four things measured at every station.</figcaption>
+    </figure>
+    <div class="t-body t-after">
+      <details class="t-vars">
+        <summary>See all twenty measures</summary>
+        <div class="t-dims">
+          <div class="t-dim d-node"><h3>Node</h3><p class="src">The station's value in the transit network</p><ul><li>Transit lines served</li><li>Service frequency (peak)</li><li>Transit stops within the catchment</li><li>Peak to off-peak service ratio</li><li>Service span (hours of operation)</li></ul></div>
+          <div class="t-dim d-place"><h3>Place</h3><p class="src">The intensity and mix of activity around it</p><ul><li>Population density</li><li>Employment density</li><li>Land-use mix (entropy index)</li><li>Destination access (points of interest)</li><li>Vacancy <span class="rev">reversed</span></li></ul></div>
+          <div class="t-dim d-ped"><h3>Pedestrian</h3><p class="src">The quality of the walking environment</p><ul><li>Pedshed (share of the catchment reachable on foot)</li><li>Intersection density</li><li>Pedestrian street quality (sidewalk width)</li><li>Crossing safety (High-Injury Network exposure)</li><li>Physical barriers <span class="rev">reversed</span></li></ul></div>
+          <div class="t-dim d-social"><h3>Social</h3><p class="src">Equity and access to opportunity</p><ul><li>Median income</li><li>Households without a car <span class="rev">reversed</span></li><li>Minority population share <span class="rev">reversed</span></li><li>Elderly population share <span class="rev">reversed</span></li><li>Renter share <span class="rev">reversed</span></li></ul></div>
         </div>
-        <span class="t-extend-arrow" aria-hidden="true"></span>
-        <div class="t-extend-col">
-          <p class="t-extend-cap">This research</p>
-          <div class="t-axes t-axes-4">
-            <span class="ax ax-node">Node</span>
-            <span class="ax ax-place">Place</span>
-            <span class="ax ax-ped is-new">Pedestrian</span>
-            <span class="ax ax-social is-new">Social</span>
-          </div>
-        </div>
-      </div>
-      <p>Earlier studies extended the model one axis at a time. What's new here is bringing walkability and social equity into a single four-part measure. Each dimension is built from five variables, twenty in all.</p>
-      <div class="t-dims">
-        <div class="t-dim d-node">
-          <h3>Node</h3>
-          <p class="src">The station's value in the transit network</p>
-          <ul>
-            <li>Transit lines served</li>
-            <li>Service frequency (peak)</li>
-            <li>Transit stops within the catchment</li>
-            <li>Peak to off-peak service ratio</li>
-            <li>Service span (hours of operation)</li>
-          </ul>
-        </div>
-        <div class="t-dim d-place">
-          <h3>Place</h3>
-          <p class="src">The intensity and mix of activity around it</p>
-          <ul>
-            <li>Population density</li>
-            <li>Employment density</li>
-            <li>Land-use mix (entropy index)</li>
-            <li>Destination access (points of interest)</li>
-            <li>Vacancy <span class="rev">reversed</span></li>
-          </ul>
-        </div>
-        <div class="t-dim d-ped">
-          <h3>Pedestrian</h3>
-          <p class="src">The quality of the walking environment</p>
-          <ul>
-            <li>Pedshed (share of the catchment reachable on foot)</li>
-            <li>Intersection density</li>
-            <li>Pedestrian street quality (sidewalk width)</li>
-            <li>Crossing safety (High-Injury Network exposure)</li>
-            <li>Physical barriers <span class="rev">reversed</span></li>
-          </ul>
-        </div>
-        <div class="t-dim d-social">
-          <h3>Social</h3>
-          <p class="src">Equity and access to opportunity</p>
-          <ul>
-            <li>Median income</li>
-            <li>Households without a car <span class="rev">reversed</span></li>
-            <li>Minority population share <span class="rev">reversed</span></li>
-            <li>Elderly population share <span class="rev">reversed</span></li>
-            <li>Renter share <span class="rev">reversed</span></li>
-          </ul>
-        </div>
-      </div>
-      <p class="muted t-note">Reversed variables are flipped before scoring so that a higher value is always the "better" direction. On the Social dimension this means a lower score marks a community with greater need: more households without a car, lower incomes, more elderly residents. It lets the framework flag where strong transit is serving, or failing to serve, the people who depend on it most.</p>
+      </details>
     </div>
   </section>
 
@@ -431,101 +451,128 @@ button.stn:focus-visible { outline:2px solid var(--accent); outline-offset:2px; 
     <h2>Why Philadelphia</h2>
     <div class="t-body">
       <p>Philadelphia's dense rail network was built for a much larger industrial population. Transit is strong, but many station areas were left behind as the city changed, and income and safety disparities are often sharpest exactly where transit is strongest.</p>
-      <p>The study covers 50 stations on the city's two rapid-transit lines: the Broad Street Line, the north-south subway (24 stations), and the Market-Frankford Line, the east-west line that runs elevated through much of the city (26 stations). Each is analysed within a half-mile catchment, the distance generally treated as a comfortable walk to transit. Regional Rail and the Norristown High-Speed Line are outside the scope.</p>
-      <figure class="t-fig" data-img-wrap="hide">
-        <img data-img="thesis-study-area" alt="Map of the 50 Broad Street Line and Market-Frankford Line stations with half-mile catchments" loading="lazy">
-        <figcaption>Study area: 50 stations with half-mile catchments</figcaption>
-      </figure>
+      <p>The study covers 50 stations on the city's two rapid-transit lines: the Broad Street Line, the north-south subway (24 stations), and the Market-Frankford Line, the east-west line that runs elevated through much of the city (26 stations). Each station is read within a half-mile catchment, the distance generally treated as a comfortable walk to transit.</p>
     </div>
+    <figure class="t-plate t-wide" data-img-wrap="hide">
+      <img data-img="Layout_with_buffer" alt="Map of the 50 Broad Street Line and Market-Frankford Line stations, each with a half-mile catchment" loading="lazy">
+      <figcaption><b>Figure 3</b> Study area: 50 stations, one half-mile walk each.</figcaption>
+    </figure>
   </section>
 
   <section class="t-block">
     <h2>Method</h2>
     <div class="t-body">
-      <p>The scoring is deliberately simple and transparent, so the results can be read and questioned.</p>
-      <ol class="t-steps">
-        <li><strong>Measure</strong><span class="st done">Done</span><span class="d">Twenty variables per station, from SEPTA service data, the U.S. Census and American Community Survey, OpenStreetMap and municipal GIS layers, the city's Complete Streets and High-Injury Network data, and points-of-interest data.</span></li>
-        <li><strong>Normalise</strong><span class="st done">Done</span><span class="d">Every variable is scaled from 0 to 1 using min-max normalisation. Six variables are reversed first so that higher is always better.</span></li>
-        <li><strong>Combine</strong><span class="st done">Done</span><span class="d">Equal weighting at both levels: five variables are averaged into each dimension score, and the four dimension scores are averaged into one overall TOD score.</span></li>
-        <li><strong>Diagnose</strong><span class="st done">Done</span><span class="d">Stations are ranked on every dimension, and four case stations are chosen to span the range from healthiest to weakest.</span></li>
-        <li><strong>Site analysis and field study</strong><span class="st">Next</span><span class="d">On-the-ground study of the physical and design conditions holding the underperforming stations back.</span></li>
-        <li><strong>Design proposals</strong><span class="st">Next</span><span class="d">Targeted urban design proposals matched to each station's diagnosis.</span></li>
-      </ol>
-      <p class="muted t-note">Why equal weights? Equal weighting is a transparent default supported in the TOD-index literature. It avoids building contestable assumptions about which factors "matter more" into what is meant to be a diagnostic tool, and it keeps any one measure from taking over.</p>
+      <p>The scoring is deliberately simple and transparent, so the results can be read and questioned. Every measure is scaled from 0 to 1, five measures are averaged into each dimension, and the four dimensions are averaged into one overall TOD score.</p>
+    </div>
+    <figure class="t-plate t-wide" data-img-wrap="hide">
+      <img data-img="Slide7" alt="Method diagram: four dimensions, normalised, equally weighted, combined into a composite, then station selection, site analysis and design recommendations" loading="lazy">
+      <figcaption><b>Figure 4</b> The method at a glance.</figcaption>
+    </figure>
+    <div class="t-body t-after">
+      <p class="muted t-note"><strong>Why equal weights?</strong> Equal weighting is a transparent default supported in the TOD-index literature. It matches expert judgement, avoids building contestable assumptions about which factors "matter more" into a diagnostic tool, and keeps any one measure from taking over.</p>
+      <p class="t-status"><span class="done">Done</span> Measuring, scoring, ranking, and selecting case stations. <span>Next</span> Site analysis, field study, and design proposals.</p>
     </div>
   </section>
 
   <section class="t-block" id="findings">
     <h2>Findings</h2>
     <div class="t-body">
-      <p>Across the 50 stations, the four dimensions behave very differently. That is the central point: collapsing them into two would hide real and distinct patterns.</p>
+      <p>The four dimensions behave very differently across the network. That is the central point: collapsing them into two would hide real and distinct patterns.</p>
       <div class="t-range" role="table" aria-label="Score range for each dimension across 50 stations">
         <div class="t-range-row t-range-head" role="row">
           <span role="columnheader">Dimension</span><span role="columnheader">Range across 50 stations</span><span role="columnheader">Mean</span>
         </div>
-        <div class="t-range-row r-node" role="row"><span role="cell">Node</span><span role="cell" class="trk"><i style="--lo:.24;--hi:.72"></i><b style="--m:.43"></b><em class="lo">0.24</em><em class="hi" style="--hi:.72">0.72</em></span><span role="cell">0.43</span></div>
-        <div class="t-range-row r-place" role="row"><span role="cell">Place</span><span role="cell" class="trk"><i style="--lo:.22;--hi:.87"></i><b style="--m:.47"></b><em class="lo">0.22</em><em class="hi" style="--hi:.87">0.87</em></span><span role="cell">0.47</span></div>
-        <div class="t-range-row r-ped" role="row"><span role="cell">Pedestrian</span><span role="cell" class="trk"><i style="--lo:.21;--hi:.85"></i><b style="--m:.64"></b><em class="lo">0.21</em><em class="hi" style="--hi:.85">0.85</em></span><span role="cell">0.64</span></div>
-        <div class="t-range-row r-social" role="row"><span role="cell">Social</span><span role="cell" class="trk"><i style="--lo:.20;--hi:.83"></i><b style="--m:.49"></b><em class="lo">0.20</em><em class="hi" style="--hi:.83">0.83</em></span><span role="cell">0.49</span></div>
-        <div class="t-range-row r-overall" role="row"><span role="cell"><strong>Overall TOD</strong></span><span role="cell" class="trk"><i style="--lo:.34;--hi:.68"></i><b style="--m:.51"></b><em class="lo">0.34</em><em class="hi" style="--hi:.68">0.68</em></span><span role="cell"><strong>0.51</strong></span></div>
-        <p class="t-range-key">Bar shows lowest to highest station score on a 0 to 1 scale; the tick marks the mean.</p>
+        <div class="t-range-row r-node" role="row"><span role="cell">Node</span><span role="cell" class="trk"><i style="--lo:.24;--hi:.72"></i><b style="--m:.43"></b><em class="lo" style="--lo:.24">0.24</em><em class="hi" style="--hi:.72">0.72</em></span><span role="cell">0.43</span></div>
+        <div class="t-range-row r-place" role="row"><span role="cell">Place</span><span role="cell" class="trk"><i style="--lo:.22;--hi:.87"></i><b style="--m:.47"></b><em class="lo" style="--lo:.22">0.22</em><em class="hi" style="--hi:.87">0.87</em></span><span role="cell">0.47</span></div>
+        <div class="t-range-row r-ped" role="row"><span role="cell">Pedestrian</span><span role="cell" class="trk"><i style="--lo:.21;--hi:.85"></i><b style="--m:.64"></b><em class="lo" style="--lo:.21">0.21</em><em class="hi" style="--hi:.85">0.85</em></span><span role="cell">0.64</span></div>
+        <div class="t-range-row r-social" role="row"><span role="cell">Social</span><span role="cell" class="trk"><i style="--lo:.20;--hi:.83"></i><b style="--m:.49"></b><em class="lo" style="--lo:.20">0.20</em><em class="hi" style="--hi:.83">0.83</em></span><span role="cell">0.49</span></div>
+        <div class="t-range-row r-overall" role="row"><span role="cell"><strong>Overall TOD</strong></span><span role="cell" class="trk"><i style="--lo:.34;--hi:.68"></i><b style="--m:.51"></b><em class="lo" style="--lo:.34">0.34</em><em class="hi" style="--hi:.68">0.68</em></span><span role="cell"><strong>0.51</strong></span></div>
+        <p class="t-range-key">Bar runs from the lowest to the highest station score on a 0 to 1 scale; the tick marks the mean.</p>
       </div>
+    </div>
 
-      <div class="t-finds">
-        <article class="t-find f-node">
-          <span class="dim">Node</span>
-          <h3>How well connected is each station?</h3>
-          <div class="range"><div><b>0.72</b><small>Chinatown, highest</small></div><div><b>0.24</b><small>8th St (Spur), lowest</small></div></div>
-          <p>The weakest dimension on average. Connectivity peaks at the downtown interchanges and drops toward the ends of the lines, so strong transit is uneven rather than universal.</p>
-          <figure class="t-fig t-swap" data-img-wrap="hide">
-            <div class="t-swap-btns" role="group" aria-label="Map shown">
-              <button type="button" aria-pressed="true" data-show="0">Node score</button><button type="button" aria-pressed="false" data-show="1">Transit stops</button>
-            </div>
-            <img data-img="thesis-node" alt="Map of Node scores by station" loading="lazy">
-            <img data-img="thesis-node-stops" alt="Map of transit stops within each station catchment" loading="lazy" hidden>
-          </figure>
-        </article>
-        <article class="t-find f-place">
-          <span class="dim">Place</span>
-          <h3>What's built around each station?</h3>
-          <div class="range"><div><b>0.87</b><small>15th St/City Hall, highest</small></div><div><b>0.22</b><small>NRG, lowest</small></div></div>
-          <p>The widest spread of any dimension, and the one that divides the city most sharply. Center City catchments sit against near-empty ones like NRG, a stadium district with almost no residents.</p>
-          <figure class="t-fig t-swap" data-img-wrap="hide">
-            <div class="t-swap-btns" role="group" aria-label="Map shown">
-              <button type="button" aria-pressed="true" data-show="0">Place score</button><button type="button" aria-pressed="false" data-show="1">Vacancy</button>
-            </div>
-            <img data-img="thesis-place" alt="Map of Place scores by station" loading="lazy">
-            <img data-img="thesis-place-vacancy" alt="Map of vacancy within each station catchment" loading="lazy" hidden>
-          </figure>
-        </article>
-        <article class="t-find f-ped">
-          <span class="dim">Pedestrian</span>
-          <h3>Is it a good place to walk?</h3>
-          <div class="range"><div><b>0.85</b><small>Fairmount, highest</small></div><div><b>0.21</b><small>30th St, lowest</small></div></div>
-          <p>The strongest dimension citywide, thanks to Philadelphia's dense historic grid: 34 of 50 stations score 0.60 or more. At 30th St, highways and the rail corridor break up the walk.</p>
-          <figure class="t-fig t-swap" data-img-wrap="hide">
-            <div class="t-swap-btns" role="group" aria-label="Map shown">
-              <button type="button" aria-pressed="true" data-show="0">Pedestrian score</button><button type="button" aria-pressed="false" data-show="1">Street quality</button>
-            </div>
-            <img data-img="thesis-pedestrian" alt="Map of Pedestrian scores by station" loading="lazy">
-            <img data-img="thesis-pedestrian-street-quality" alt="Map of pedestrian street quality within each station catchment" loading="lazy" hidden>
-          </figure>
-        </article>
-        <article class="t-find f-social">
-          <span class="dim">Social</span>
-          <h3>Who does each station serve?</h3>
-          <div class="range"><div><b>0.83</b><small>Girard (Front St), highest</small></div><div><b>0.20</b><small>Allegheny, lowest</small></div></div>
-          <p>A clear north-south divide, with North Philadelphia consistently paler on the map, meaning greater need. Allegheny scores lowest, which is also where strong transit could do the most.</p>
-          <figure class="t-fig t-swap" data-img-wrap="hide">
-            <div class="t-swap-btns" role="group" aria-label="Map shown">
-              <button type="button" aria-pressed="true" data-show="0">Social score</button><button type="button" aria-pressed="false" data-show="1">Income</button>
-            </div>
-            <img data-img="thesis-social" alt="Map of Social scores by station" loading="lazy">
-            <img data-img="thesis-social-income" alt="Map of median income within each station catchment" loading="lazy" hidden>
-          </figure>
-        </article>
+    <article class="t-chapter t-wide f-node">
+      <div class="t-chapter-text">
+        <span class="dim">Node</span>
+        <h3>How well connected is each station?</h3>
+        <dl class="t-nums"><div><dt>Mean</dt><dd>0.43</dd></div><div><dt>Highest</dt><dd>0.72 <small>Chinatown</small></dd></div><div><dt>Lowest</dt><dd>0.24 <small>8th St (Spur)</small></dd></div></dl>
+        <p>The weakest dimension on average. Connectivity peaks at the downtown interchanges and falls away toward the ends of the lines: strong transit is uneven, not universal.</p>
+        <p class="t-read">Darker circles are better connected. Switch to <em>Transit stops</em> to see one of the five measures behind the score.</p>
       </div>
+      <figure class="t-plate t-swap" data-img-wrap="hide">
+        <div class="t-swap-btns" role="group" aria-label="Map shown">
+          <button type="button" aria-pressed="true" data-show="0">Node score</button><button type="button" aria-pressed="false" data-show="1">Transit stops</button>
+        </div>
+        <img data-img="Slide9" alt="Map of Node scores for the 50 station catchments" loading="lazy">
+        <img data-img="Slide10" alt="Node score map beside a map of transit stops within each catchment" loading="lazy" hidden>
+      </figure>
+    </article>
 
+    <article class="t-chapter t-wide f-place">
+      <div class="t-chapter-text">
+        <span class="dim">Place</span>
+        <h3>What's built around each station?</h3>
+        <dl class="t-nums"><div><dt>Mean</dt><dd>0.47</dd></div><div><dt>Highest</dt><dd>0.87 <small>15th St/City Hall</small></dd></div><div><dt>Lowest</dt><dd>0.22 <small>NRG</small></dd></div></dl>
+        <p>The widest spread of any dimension, and the one that divides the city most sharply. Center City catchments sit against near-empty ones like NRG, a stadium district with almost no residents. 21 of 50 stations score below 0.40.</p>
+        <p class="t-read">Switch to <em>Vacancy</em> to see where empty land pulls the score down.</p>
+      </div>
+      <figure class="t-plate t-swap" data-img-wrap="hide">
+        <div class="t-swap-btns" role="group" aria-label="Map shown">
+          <button type="button" aria-pressed="true" data-show="0">Place score</button><button type="button" aria-pressed="false" data-show="1">Vacancy</button>
+        </div>
+        <img data-img="Slide11" alt="Map of Place scores for the 50 station catchments" loading="lazy">
+        <img data-img="Slide12" alt="Place score map beside a map of vacancy within each catchment" loading="lazy" hidden>
+      </figure>
+    </article>
+
+    <article class="t-chapter t-wide f-ped">
+      <div class="t-chapter-text">
+        <span class="dim">Pedestrian</span>
+        <h3>Is it a good place to walk?</h3>
+        <dl class="t-nums"><div><dt>Mean</dt><dd>0.64</dd></div><div><dt>Highest</dt><dd>0.85 <small>Fairmount</small></dd></div><div><dt>Lowest</dt><dd>0.21 <small>30th St</small></dd></div></dl>
+        <p>The strongest dimension citywide, thanks to Philadelphia's dense historic grid: 34 of 50 stations score 0.60 or more. At 30th St, highways and the rail corridor break up the walk.</p>
+        <p class="t-read">Switch to <em>Street quality</em> to see sidewalk conditions behind the score.</p>
+      </div>
+      <figure class="t-plate t-swap" data-img-wrap="hide">
+        <div class="t-swap-btns" role="group" aria-label="Map shown">
+          <button type="button" aria-pressed="true" data-show="0">Pedestrian score</button><button type="button" aria-pressed="false" data-show="1">Street quality</button>
+        </div>
+        <img data-img="Slide13" alt="Map of Pedestrian scores for the 50 station catchments" loading="lazy">
+        <img data-img="Slide14" alt="Pedestrian score map beside a map of pedestrian street quality" loading="lazy" hidden>
+      </figure>
+    </article>
+
+    <article class="t-chapter t-wide f-social">
+      <div class="t-chapter-text">
+        <span class="dim">Social</span>
+        <h3>Who does each station serve?</h3>
+        <dl class="t-nums"><div><dt>Mean</dt><dd>0.49</dd></div><div><dt>Highest</dt><dd>0.83 <small>Girard (Front St)</small></dd></div><div><dt>Lowest</dt><dd>0.20 <small>Allegheny</small></dd></div></dl>
+        <p>A clear north-south divide. Paler circles mean more disadvantaged communities, and North Philadelphia is consistently paler. Allegheny scores lowest, which is also where strong transit could do the most.</p>
+        <p class="t-read">Switch to <em>Income</em> to see one of the five measures behind the score.</p>
+      </div>
+      <figure class="t-plate t-swap" data-img-wrap="hide">
+        <div class="t-swap-btns" role="group" aria-label="Map shown">
+          <button type="button" aria-pressed="true" data-show="0">Social score</button><button type="button" aria-pressed="false" data-show="1">Income</button>
+        </div>
+        <img data-img="Slide15" alt="Map of Social scores for the 50 station catchments" loading="lazy">
+        <img data-img="Slide16" alt="Social score map beside a map of median income" loading="lazy" hidden>
+      </figure>
+    </article>
+
+    <div class="t-body t-after">
+      <h3 class="t-subhead">All four, side by side</h3>
+      <p>Read together, the four maps show that no single station leads, or trails, on everything. The best performers on each dimension are different stations, and so are the worst.</p>
+    </div>
+    <figure class="t-plate t-wide t-swap" data-img-wrap="hide">
+      <div class="t-swap-btns" role="group" aria-label="Stations highlighted">
+        <button type="button" aria-pressed="true" data-show="0">Strongest on each</button><button type="button" aria-pressed="false" data-show="1">Weakest on each</button>
+      </div>
+      <img data-img="Slide17" alt="The four dimension maps side by side, highlighting the strongest station on each: Chinatown, 15th St, Fairmount and Girard" loading="lazy">
+      <img data-img="Slide18" alt="The four dimension maps side by side, highlighting the weakest station on each: 8th St, NRG, 30th St and Allegheny" loading="lazy" hidden>
+      <figcaption><b>Figure 5</b> Strongest: Chinatown (Node), 15th St (Place), Fairmount (Pedestrian), Girard (Social). Weakest: 8th St, NRG, 30th St, Allegheny.</figcaption>
+    </figure>
+
+    <div class="t-body t-after">
       <h3 class="t-subhead">What the numbers reveal</h3>
       <div class="t-reveals">
         <div class="t-reveal">
@@ -534,27 +581,30 @@ button.stn:focus-visible { outline:2px solid var(--accent); outline-offset:2px; 
         </div>
         <div class="t-reveal">
           <h4>"Strong node, hollow place" is real and measurable</h4>
-          <p>A cluster of stations, led by <button type="button" class="stn" data-stn="Erie">Erie</button> on North Broad, have strong transit but weak surroundings: high vacancy, few destinations, and communities in need. These are the clearest underperformers.</p>
+          <p>A cluster of stations, led by <button type="button" class="stn" data-stn="Erie">Erie</button> on North Broad, have strong transit but weak surroundings: high vacancy, few destinations, and communities in need.</p>
         </div>
         <div class="t-reveal">
           <h4>Walkability is not the same as place</h4>
-          <p>Several South Broad stations, such as <button type="button" class="stn" data-stn="Oregon">Oregon</button> and <button type="button" class="stn" data-stn="Ellsworth-Federal">Ellsworth-Federal</button>, score high on Pedestrian but low on Place. The sidewalks are good; there is little to walk to. A two-axis model cannot make that distinction.</p>
+          <p>South Broad stations such as <button type="button" class="stn" data-stn="Oregon">Oregon</button> and <button type="button" class="stn" data-stn="Ellsworth-Federal">Ellsworth-Federal</button> score high on Pedestrian but low on Place. The sidewalks are good; there is little to walk to.</p>
         </div>
         <div class="t-reveal">
           <h4>The weakest stations fail for different reasons</h4>
-          <p>The lowest scores are scattered, not concentrated: a stadium district with no residents (<button type="button" class="stn" data-stn="NRG Station">NRG</button>), a downtown station hemmed in by highway and rail (<button type="button" class="stn" data-stn="30th St">30th St</button>), and disinvested residential areas (<button type="button" class="stn" data-stn="Allegheny">Allegheny</button>). That is why a multi-dimensional diagnosis is needed.</p>
+          <p>A stadium district with no residents (<button type="button" class="stn" data-stn="NRG Station">NRG</button>), a downtown station hemmed in by highway and rail (<button type="button" class="stn" data-stn="30th St">30th St</button>), and disinvested residential areas (<button type="button" class="stn" data-stn="Allegheny">Allegheny</button>).</p>
         </div>
       </div>
-
-      <div class="t-overall">
-        <h3>All four together: an average TOD score of 0.51</h3>
-        <p>Center City stations lead, with Walnut-Locust highest at 0.68. The weakest stations cluster in North and West Philadelphia, with Allegheny lowest at 0.34. South Philadelphia sits in the middle, with good walkability but thinner development. A few edge stations near stadiums, rail yards, and water also score low.</p>
-        <figure class="t-fig" data-img-wrap="hide">
-          <img data-img="thesis-cover" alt="Map of overall TOD scores for the 50 station areas" loading="lazy">
-          <figcaption>Overall TOD score for each station area</figcaption>
-        </figure>
-      </div>
     </div>
+
+    <article class="t-chapter t-wide f-overall">
+      <div class="t-chapter-text">
+        <span class="dim">Overall TOD</span>
+        <h3>The four dimensions together</h3>
+        <dl class="t-nums"><div><dt>Mean</dt><dd>0.51</dd></div><div><dt>Highest</dt><dd>0.68 <small>Walnut-Locust</small></dd></div><div><dt>Lowest</dt><dd>0.34 <small>Allegheny</small></dd></div></dl>
+        <p>Center City stations lead. The weakest cluster in North and West Philadelphia. South Philadelphia sits in the middle, with good walkability but thinner development, and a few edge stations near stadiums, rail yards, and water also score low.</p>
+      </div>
+      <figure class="t-plate" data-img-wrap="hide">
+        <img data-img="Slide19" alt="Map of overall TOD scores for the 50 station catchments" loading="lazy">
+      </figure>
+    </article>
   </section>
 
   <section class="t-block" id="stations">
@@ -592,75 +642,102 @@ button.stn:focus-visible { outline:2px solid var(--accent); outline-offset:2px; 
         <p class="sx-note">Scores 0 to 1, rounded to two decimals, so some stations appear tied. 15th St/City Hall appears twice in the source data, once per line.</p>
       </div>
     </div>
+      <div class="t-body t-after">
+      <p>The same ranking as presented at ACSA: each column ranked on its own, with the top 15 stations in green and the bottom 15 in red, and the best and worst overall boxed.</p>
+    </div>
+    <figure class="t-plate t-wide" data-img-wrap="hide">
+      <img data-img="table_tiered" alt="All 50 stations ranked in tiers on every dimension, top 15 in green and bottom 15 in red" loading="lazy">
+      <figcaption><b>Figure 6</b> All 50 stations ranked in tiers on every dimension.</figcaption>
+    </figure>
   </section>
 
   <section class="t-block">
     <h2>Case stations</h2>
     <div class="t-body">
-      <p>Four stations were studied in detail, chosen to span the range from the healthiest station area to the weakest, plus two that show the "strong node, weak surroundings" pattern the framework is built to detect. Each map shows land use within the half-mile catchment.</p>
-      <div class="t-cases">
-        <article class="t-case bench">
-          <span class="role">Benchmark: healthiest overall</span>
-          <h3>Walnut-Locust</h3>
-          <p class="ln">Broad Street Line · Overall rank 1 of 50</p>
-          <figure class="t-fig" data-img-wrap="hide"><img data-img="thesis-walnut-locust" alt="Land use within the Walnut-Locust station catchment" loading="lazy"></figure>
-          <table>
-            <tr><td>Node</td><td><span class="bar b-node" style="--v:.60"><i></i></span>0.60</td><td>#6</td></tr>
-            <tr><td>Place</td><td><span class="bar b-place" style="--v:.84"><i></i></span>0.84</td><td>#3</td></tr>
-            <tr><td>Pedestrian</td><td><span class="bar b-ped" style="--v:.77"><i></i></span>0.77</td><td>#10</td></tr>
-            <tr><td>Social</td><td><span class="bar b-social" style="--v:.52"><i></i></span>0.52</td><td>#15</td></tr>
-            <tr class="tot"><td>Overall</td><td><span class="bar b-overall" style="--v:.68"><i></i></span>0.68</td><td>#1</td></tr>
-          </table>
-          <p>The highest overall score in the study. Its Place and Pedestrian scores both sit well above its Node score: a well-rounded, high-functioning station area that shows what "good" looks like.</p>
-          <a class="map" href="https://maps.app.goo.gl/j6iTZzpzfccA8hKb6" target="_blank" rel="noopener">View on map ↗</a>
-        </article>
-        <article class="t-case">
-          <span class="role">Weakest overall</span>
-          <h3>Allegheny</h3>
-          <p class="ln">Broad Street Line · Overall rank 50 of 50</p>
-          <figure class="t-fig" data-img-wrap="hide"><img data-img="thesis-allegheny" alt="Land use within the Allegheny station catchment" loading="lazy"></figure>
-          <table>
-            <tr><td>Node</td><td><span class="bar b-node" style="--v:.34"><i></i></span>0.34</td><td>#46</td></tr>
-            <tr><td>Place</td><td><span class="bar b-place" style="--v:.30"><i></i></span>0.30</td><td>#46</td></tr>
-            <tr><td>Pedestrian</td><td><span class="bar b-ped" style="--v:.55"><i></i></span>0.55</td><td>#41</td></tr>
-            <tr><td>Social</td><td><span class="bar b-social" style="--v:.20"><i></i></span>0.20</td><td>#50</td></tr>
-            <tr class="tot"><td>Overall</td><td><span class="bar b-overall" style="--v:.34"><i></i></span>0.34</td><td>#50</td></tr>
-          </table>
-          <p>The lowest overall score, and the most disadvantaged catchment on the Social dimension. Weak across every dimension: the clearest case of a community underserved on all fronts.</p>
-          <a class="map" href="https://maps.app.goo.gl/vjcR3AuM1JNJ7afN8" target="_blank" rel="noopener">View on map ↗</a>
-        </article>
-        <article class="t-case flagship">
-          <span class="role">Flagship case: strong node, weak surroundings</span>
-          <h3>Erie</h3>
-          <p class="ln">Broad Street Line · Overall rank 30 of 50</p>
-          <figure class="t-fig" data-img-wrap="hide"><img data-img="thesis-erie" alt="Land use within the Erie station catchment" loading="lazy"></figure>
-          <table>
-            <tr><td>Node</td><td><span class="bar b-node" style="--v:.63"><i></i></span>0.63</td><td>#2</td></tr>
-            <tr><td>Place</td><td><span class="bar b-place" style="--v:.34"><i></i></span>0.34</td><td>#43</td></tr>
-            <tr><td>Pedestrian</td><td><span class="bar b-ped" style="--v:.65"><i></i></span>0.65</td><td>#28</td></tr>
-            <tr><td>Social</td><td><span class="bar b-social" style="--v:.27"><i></i></span>0.27</td><td>#49</td></tr>
-            <tr class="tot"><td>Overall</td><td><span class="bar b-overall" style="--v:.47"><i></i></span>0.47</td><td>#30</td></tr>
-          </table>
-          <p>The clearest demonstration of the thesis. Erie has the second-highest Node score in the study, yet its Place and Social scores are near the bottom. Judged on its transit alone it looks like one of the network's strongest stations; the four dimensions show a hollow place and a community in need.</p>
-          <a class="map" href="https://maps.app.goo.gl/QBb8yo29g8V6rqPP9" target="_blank" rel="noopener">View on map ↗</a>
-        </article>
-        <article class="t-case">
-          <span class="role">Strong node, weak surroundings</span>
-          <h3>Fern Rock</h3>
-          <p class="ln">Broad Street Line · Overall rank 38 of 50</p>
-          <figure class="t-fig" data-img-wrap="hide"><img data-img="thesis-fern-rock" alt="Land use within the Fern Rock station catchment" loading="lazy"></figure>
-          <table>
-            <tr><td>Node</td><td><span class="bar b-node" style="--v:.60"><i></i></span>0.60</td><td>#4</td></tr>
-            <tr><td>Place</td><td><span class="bar b-place" style="--v:.38"><i></i></span>0.38</td><td>#36</td></tr>
-            <tr><td>Pedestrian</td><td><span class="bar b-ped" style="--v:.39"><i></i></span>0.39</td><td>#47</td></tr>
-            <tr><td>Social</td><td><span class="bar b-social" style="--v:.42"><i></i></span>0.42</td><td>#32</td></tr>
-            <tr class="tot"><td>Overall</td><td><span class="bar b-overall" style="--v:.45"><i></i></span>0.45</td><td>#38</td></tr>
-          </table>
-          <p>The northern terminal of the Broad Street Line and a major transfer hub. High transit value, but weak place and especially weak pedestrian conditions, one of the poorest walking environments in the study.</p>
-          <a class="map" href="https://maps.app.goo.gl/muAJcbeBuuuvhsMVA" target="_blank" rel="noopener">View on map ↗</a>
-        </article>
-      </div>
+      <p>Four stations were studied in detail, chosen to span the range from the healthiest station area to the weakest, plus two that show the "strong node, weak surroundings" pattern the framework is built to detect. For each, the catchment map shows land use within the half-mile walk, and the street view shows what that feels like on the ground.</p>
     </div>
+
+    <article class="t-case-row t-wide">
+      <div class="t-case-text">
+        <span class="role">Benchmark: healthiest overall</span>
+        <h3>Walnut-Locust</h3>
+        <p class="ln">Broad Street Line · Overall rank 1 of 50</p>
+        <table class="t-scores"><tr><td>Node</td><td><span class="bar b-node" style="--v:0.60"><i></i></span>0.60</td><td>#6</td></tr><tr><td>Place</td><td><span class="bar b-place" style="--v:0.84"><i></i></span>0.84</td><td>#3</td></tr><tr><td>Pedestrian</td><td><span class="bar b-ped" style="--v:0.77"><i></i></span>0.77</td><td>#10</td></tr><tr><td>Social</td><td><span class="bar b-social" style="--v:0.52"><i></i></span>0.52</td><td>#15</td></tr><tr class="tot"><td>Overall</td><td><span class="bar b-overall" style="--v:0.68"><i></i></span>0.68</td><td>#1</td></tr></table>
+        <p>Dense, mixed, and walkable. The highest overall score in the study, with Place and Pedestrian both well above its Node score: a well-rounded station area that shows what "good" looks like.</p>
+        <a class="map" href="https://maps.app.goo.gl/j6iTZzpzfccA8hKb6" target="_blank" rel="noopener">Open in Google Maps ↗</a>
+      </div>
+      <figure class="t-plate t-swap" data-img-wrap="hide">
+        <div class="t-swap-btns" role="group" aria-label="View shown">
+          <button type="button" aria-pressed="true" data-show="0">Catchment map</button><button type="button" aria-pressed="false" data-show="1">Street level</button>
+        </div>
+        <img data-img="Slide21" alt="Land use within the half-mile catchment of Walnut-Locust station, with its four dimension scores" loading="lazy">
+        <img data-img="Slide22" alt="Street-level view near Walnut-Locust station" loading="lazy" hidden>
+        <figcaption class="t-sv" hidden>Street level image: Google Street View.</figcaption>
+      </figure>
+    </article>
+    <article class="t-case-row t-wide t-flip">
+      <div class="t-case-text">
+        <span class="role">Weakest overall</span>
+        <h3>Allegheny</h3>
+        <p class="ln">Broad Street Line · Overall rank 50 of 50</p>
+        <table class="t-scores"><tr><td>Node</td><td><span class="bar b-node" style="--v:0.34"><i></i></span>0.34</td><td>#46</td></tr><tr><td>Place</td><td><span class="bar b-place" style="--v:0.30"><i></i></span>0.30</td><td>#46</td></tr><tr><td>Pedestrian</td><td><span class="bar b-ped" style="--v:0.55"><i></i></span>0.55</td><td>#41</td></tr><tr><td>Social</td><td><span class="bar b-social" style="--v:0.20"><i></i></span>0.20</td><td>#50</td></tr><tr class="tot"><td>Overall</td><td><span class="bar b-overall" style="--v:0.34"><i></i></span>0.34</td><td>#50</td></tr></table>
+        <p>High vacancy and high need. The lowest overall score and the most disadvantaged catchment on the Social dimension: a community underserved on every front.</p>
+        <a class="map" href="https://maps.app.goo.gl/vjcR3AuM1JNJ7afN8" target="_blank" rel="noopener">Open in Google Maps ↗</a>
+      </div>
+      <figure class="t-plate t-swap" data-img-wrap="hide">
+        <div class="t-swap-btns" role="group" aria-label="View shown">
+          <button type="button" aria-pressed="true" data-show="0">Catchment map</button><button type="button" aria-pressed="false" data-show="1">Street level</button>
+        </div>
+        <img data-img="Slide23" alt="Land use within the half-mile catchment of Allegheny station, with its four dimension scores" loading="lazy">
+        <img data-img="Slide24" alt="Street-level view near Allegheny station" loading="lazy" hidden>
+        <figcaption class="t-sv" hidden>Street level image: Google Street View.</figcaption>
+      </figure>
+    </article>
+    <article class="t-case-row t-wide flagship">
+      <div class="t-case-text">
+        <span class="role">Flagship case: strong node, weak surroundings</span>
+        <h3>Erie</h3>
+        <p class="ln">Broad Street Line · Overall rank 30 of 50</p>
+        <table class="t-scores"><tr><td>Node</td><td><span class="bar b-node" style="--v:0.63"><i></i></span>0.63</td><td>#2</td></tr><tr><td>Place</td><td><span class="bar b-place" style="--v:0.34"><i></i></span>0.34</td><td>#43</td></tr><tr><td>Pedestrian</td><td><span class="bar b-ped" style="--v:0.65"><i></i></span>0.65</td><td>#28</td></tr><tr><td>Social</td><td><span class="bar b-social" style="--v:0.27"><i></i></span>0.27</td><td>#49</td></tr><tr class="tot"><td>Overall</td><td><span class="bar b-overall" style="--v:0.47"><i></i></span>0.47</td><td>#30</td></tr></table>
+        <p>The clearest demonstration of the thesis. Erie has the second-highest Node score in the study, yet its Place and Social scores are near the bottom. Judged on its transit alone it looks like one of the network's strongest stations; the four dimensions show a hollow place and a community in need.</p>
+        <a class="map" href="https://maps.app.goo.gl/QBb8yo29g8V6rqPP9" target="_blank" rel="noopener">Open in Google Maps ↗</a>
+      </div>
+      <figure class="t-plate t-swap" data-img-wrap="hide">
+        <div class="t-swap-btns" role="group" aria-label="View shown">
+          <button type="button" aria-pressed="true" data-show="0">Catchment map</button><button type="button" aria-pressed="false" data-show="1">Street level</button>
+        </div>
+        <img data-img="Slide25" alt="Land use within the half-mile catchment of Erie station, with its four dimension scores" loading="lazy">
+        <img data-img="Slide26" alt="Street-level view near Erie station" loading="lazy" hidden>
+        <figcaption class="t-sv" hidden>Street level image: Google Street View.</figcaption>
+      </figure>
+    </article>
+    <article class="t-case-row t-wide t-flip">
+      <div class="t-case-text">
+        <span class="role">Strong node, weak surroundings</span>
+        <h3>Fern Rock</h3>
+        <p class="ln">Broad Street Line · Overall rank 38 of 50</p>
+        <table class="t-scores"><tr><td>Node</td><td><span class="bar b-node" style="--v:0.60"><i></i></span>0.60</td><td>#4</td></tr><tr><td>Place</td><td><span class="bar b-place" style="--v:0.38"><i></i></span>0.38</td><td>#36</td></tr><tr><td>Pedestrian</td><td><span class="bar b-ped" style="--v:0.39"><i></i></span>0.39</td><td>#47</td></tr><tr><td>Social</td><td><span class="bar b-social" style="--v:0.42"><i></i></span>0.42</td><td>#32</td></tr><tr class="tot"><td>Overall</td><td><span class="bar b-overall" style="--v:0.45"><i></i></span>0.45</td><td>#38</td></tr></table>
+        <p>The northern terminal of the Broad Street Line and a major transfer hub. High transit value, set in an underbuilt edge with one of the weakest walking environments in the study.</p>
+        <a class="map" href="https://maps.app.goo.gl/muAJcbeBuuuvhsMVA" target="_blank" rel="noopener">Open in Google Maps ↗</a>
+      </div>
+      <figure class="t-plate t-swap" data-img-wrap="hide">
+        <div class="t-swap-btns" role="group" aria-label="View shown">
+          <button type="button" aria-pressed="true" data-show="0">Catchment map</button><button type="button" aria-pressed="false" data-show="1">Street level</button>
+        </div>
+        <img data-img="Slide27" alt="Land use within the half-mile catchment of Fern Rock station, with its four dimension scores" loading="lazy">
+        <img data-img="Slide28" alt="Street-level view near Fern Rock station" loading="lazy" hidden>
+        <figcaption class="t-sv" hidden>Street level image: Google Street View.</figcaption>
+      </figure>
+    </article>
+
+    <div class="t-body t-after">
+      <h3 class="t-subhead">From a thriving benchmark to the underperformers</h3>
+      <p>Side by side, the four catchments make the contrast visible: a dense, mixed grid at Walnut-Locust; vacancy and need at Allegheny; strong transit with thin surroundings at Erie; and a major terminal set in an underbuilt edge at Fern Rock.</p>
+    </div>
+    <figure class="t-plate t-wide" data-img-wrap="hide">
+      <img data-img="Slide29" alt="The four case station catchments side by side: Walnut-Locust, Allegheny, Erie and Fern Rock" loading="lazy">
+      <figcaption><b>Figure 7</b> The four case stations compared.</figcaption>
+    </figure>
   </section>
 
   <section class="t-block">
@@ -719,12 +796,17 @@ button.stn:focus-visible { outline:2px solid var(--accent); outline-offset:2px; 
         <div><dt>Author</dt><dd>Urvi Patel</dd></div>
         <div><dt>Co-authors</dt><dd>Dr. Peng Du (thesis advisor), Irene Amankwah Bonsu</dd></div>
         <div><dt>Institution</dt><dd>Thomas Jefferson University, Master of Urban Design, Future Cities</dd></div>
-        <div><dt>Analysis</dt><dd>50 SEPTA rapid-transit stations, 20 variables across four dimensions, half-mile catchments, min-max normalised and equally weighted. Maps by the author in ArcGIS Pro.</dd></div>
+        <div><dt>Analysis</dt><dd>50 SEPTA rapid-transit stations, 20 measures across four dimensions, half-mile catchments, min-max normalised and equally weighted. Maps by the author in ArcGIS Pro. Street views: Google Street View.</dd></div>
       </dl>
     </div>
   </section>
 
 </div>
+
+<dialog class="t-lightbox" id="lightbox" aria-label="Enlarged figure">
+  <button type="button" class="t-lb-close" aria-label="Close">Close</button>
+  <img alt="">
+</dialog>
 
 <section class="section cta-band">
   <div class="container">
@@ -772,7 +854,7 @@ button.stn:focus-visible { outline:2px solid var(--accent); outline-offset:2px; 
   }
   /* Figures: tries .jpg, .jpeg, .png, .webp; hides the figure if no image is uploaded yet */
   (function () {
-    var exts = ['jpg', 'jpeg', 'png', 'webp', 'JPG', 'JPEG', 'PNG'];
+    var exts = ['jpg', 'JPG', 'jpeg', 'png', 'PNG', 'webp', 'JPEG'];
     document.querySelectorAll('img[data-img]').forEach(function (img) {
       var base = img.getAttribute('data-img'), i = 0, wrap = img.closest('[data-img-wrap]');
       function next() {
@@ -957,9 +1039,27 @@ button.stn:focus-visible { outline:2px solid var(--accent); outline-offset:2px; 
         var n = +b.getAttribute('data-show');
         btns.forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
         imgs.forEach(function (im, i) { im.hidden = i !== n; });
+        var sv = fig.querySelector('.t-sv'); if (sv) sv.hidden = n !== 1;
       });
     });
   });
+
+  /* Click-to-enlarge for every figure (slides carry small text) */
+  (function () {
+    var lb = document.getElementById('lightbox');
+    if (!lb || !lb.showModal) return;
+    var big = lb.querySelector('img');
+    function open(img) { if (!img || !img.src) return; big.src = img.src; big.alt = img.alt; lb.showModal(); }
+    document.querySelectorAll('.t-plate').forEach(function (fig) {
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 't-zoom'; b.textContent = 'Enlarge';
+      b.addEventListener('click', function () { open([].filter.call(fig.querySelectorAll('img'), function (im) { return !im.hidden; })[0]); });
+      fig.appendChild(b);
+      fig.querySelectorAll('img').forEach(function (im) { im.addEventListener('click', function () { open(im); }); });
+    });
+    lb.querySelector('.t-lb-close').addEventListener('click', function () { lb.close(); });
+    lb.addEventListener('click', function (e) { if (e.target === lb || e.target === big) lb.close(); });
+  })();
 
   /* Conference slides button: shows only once Thesis-ACSA-2026-Slides.pdf is uploaded */
   (function () {

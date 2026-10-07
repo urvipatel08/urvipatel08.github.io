@@ -264,15 +264,41 @@
     });
   })();
 
-  /* Hero map: uses your hero-map file if found, otherwise the built-in map stays */
+  /* Hero map: uses your hero-map file if found, otherwise the built-in map stays.
+     fitHero sizes the band to the map: wide enough to reach under the text, never
+     wider than the map itself, so the soft left fade sits on the map's own edge. */
   (function () {
-    var bg = document.querySelector('.hero-bg');
-    if (!bg) return;
+    var bg = document.querySelector('.hero-bg'), hero = document.querySelector('.hero');
+    if (!bg || !hero) return;
+    var natW = 0, natH = 0;
+    function fitHero() {
+      if (!natW) return;
+      var hw = hero.clientWidth, hh = hero.clientHeight;
+      var bandH = Math.min(450, hh), target = hw * (hw < 800 ? 1 : 0.8);
+      var scale = bandH / natH;
+      if (natW * scale < target) scale = target / natW;   /* zoom in just enough to reach under the text */
+      var w = natW * scale, h = natH * scale;
+      bandH = Math.min(Math.max(bandH, Math.min(h, hh)), hh);
+      bg.style.height = bandH + 'px';
+      bg.style.width = Math.min(w, hw) + 'px';
+      bg.style.backgroundSize = w + 'px ' + h + 'px';
+    }
+    function measure(url, cssScale) {
+      var t = new Image();
+      t.onload = function () { natW = t.naturalWidth / cssScale; natH = t.naturalHeight / cssScale; fitHero(); };
+      t.src = url;
+    }
+    var m = /url\(["']?(.*?)["']?\)/.exec(getComputedStyle(bg).backgroundImage || '');
+    if (m) measure(m[1], 2);   /* built-in map is stored at 2x */
+    window.addEventListener('resize', fitHero);
     var exts = ['jpg', 'png', 'jpeg', 'webp', 'JPG', 'PNG'], i = 0;
     function next() {
       if (i >= exts.length) return;
       var url = 'hero-map.' + exts[i++], t = new Image();
-      t.onload = function () { bg.style.backgroundImage = "url('" + url + "')"; };
+      t.onload = function () {
+        bg.style.backgroundImage = "url('" + url + "')";
+        natW = t.naturalWidth; natH = t.naturalHeight; fitHero();
+      };
       t.onerror = next;
       t.src = url;
     }

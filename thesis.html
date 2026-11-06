@@ -327,6 +327,27 @@ button.stn:focus-visible { outline:2px solid var(--accent); outline-offset:2px; 
 @media (max-width: 800px) {
   .t-block > .t-after, .t-block > .t-wide { grid-column:1 / -1; }
 }
+/* ---- Thesis StoryMap (Nov 2026) ---- */
+.t-sm-cta { display:flex; flex-wrap:wrap; align-items:center; gap:.6rem 1.2rem; margin-top:var(--space-3); }
+.t-sm-cta .hint { font-size:.88rem; color:var(--ink-muted); }
+.t-sm-cta .hint a { color:var(--accent); }
+.t-sm { border:1px solid var(--line); background:var(--surface); margin-top:var(--space-3); }
+.t-sm-bar { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:.6rem 1rem; padding:.75rem 1rem; border-bottom:1px solid var(--line); }
+.t-sm-bar span { font-size:.85rem; color:var(--ink-muted); }
+.t-sm-frame { position:relative; height:min(78vh, 720px); background:var(--paper); }
+.t-sm-frame iframe { position:absolute; inset:0; width:100%; height:100%; border:0; display:block; }
+.t-sm-frame .loading { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:.9rem; color:var(--ink-muted); }
+.t-sm-cover { display:none; text-decoration:none; color:inherit; }
+.t-sm-cover img { display:block; width:100%; height:auto; border-bottom:1px solid var(--line); }
+.t-sm-cover .ph { display:flex; flex-direction:column; justify-content:flex-end; min-height:200px; padding:1.25rem; background:var(--accent); color:#fff; }
+.t-sm-cover .ph b { font-family:var(--font-display); font-size:1.3rem; line-height:1.2; }
+.t-sm-cover .ph small { opacity:.85; margin-top:.3rem; }
+.t-sm-cover .go { display:block; padding:.9rem 1rem; font-weight:600; color:var(--accent); }
+@media (max-width: 800px) {
+  .t-sm-frame { display:none; }
+  .t-sm-cover { display:block; }
+  .t-sm-bar span { display:none; }
+}
 </style>
 </head>
 <body>
@@ -353,7 +374,7 @@ button.stn:focus-visible { outline:2px solid var(--accent); outline-offset:2px; 
   <p>A four-dimensional framework for identifying underperforming transit stations in Philadelphia.</p>
   <div class="t-meta">
     <span>Thomas Jefferson University</span>
-    <span>Master of Urban Design, Future Cities</span>
+    <span>Master of Urban Design – Future Cities</span>
     <span>With Dr. Peng Du &amp; Irene Amankwah Bonsu</span>
     <span>2026</span>
   </div>
@@ -363,6 +384,10 @@ button.stn:focus-visible { outline:2px solid var(--accent); outline-offset:2px; 
     <span class="t-chip">Pedestrian Environment</span>
     <span class="t-chip">Social Equity</span>
     <span class="t-chip">GIS</span>
+  </div>
+  <div class="t-sm-cta">
+    <a href="https://storymaps.arcgis.com/stories/2017b2296b7b4263afb622fe4cb5bd32" target="_blank" rel="noopener" class="btn btn-primary">Open the interactive StoryMap ↗</a>
+    <span class="hint">or <a href="#storymap">preview it on this page</a></span>
   </div>
   <div class="nw" id="network">
     <div class="nw-head">
@@ -394,6 +419,28 @@ button.stn:focus-visible { outline:2px solid var(--accent); outline-offset:2px; 
       <p>Across a rail network, some station areas thrive while others with the same strong transit stay underused. Transit-oriented development planning has long read stations through Luca Bertolini's node-place model (1999): a station's value as a <em>node</em> in the network, set against the intensity of the <em>place</em> around it.</p>
       <p>Two dimensions flatten much of what decides whether a station area actually works. A station can have excellent service and a reasonable mix of land uses, yet be hostile to walk through, or serve a community with little access to opportunity. This thesis extends the model to four dimensions and applies it to all 50 rapid-transit stations on Philadelphia's SEPTA network.</p>
       <p class="muted">The purpose is diagnostic: to find stations where transit investment is already strong but the surroundings, walkability, or community have not kept pace. Those are the places where urban design can do the most good, because the hardest and most expensive piece, the rail line, is already in the ground.</p>
+    </div>
+  </section>
+
+  <section class="t-block" id="storymap">
+    <h2>StoryMap</h2>
+    <div class="t-body">
+      <p>The full thesis is also told as an interactive ArcGIS StoryMap: the maps, station scores, and case stations in one guided scroll. Explore it here, or open it full screen for the best view.</p>
+      <div class="t-sm">
+        <div class="t-sm-bar">
+          <span>Scroll inside the window to move through the story.</span>
+          <a href="https://storymaps.arcgis.com/stories/2017b2296b7b4263afb622fe4cb5bd32" target="_blank" rel="noopener" class="btn btn-outline">Open full screen ↗</a>
+        </div>
+        <div class="t-sm-frame">
+          <p class="loading">Loading the StoryMap…</p>
+          <iframe data-src="https://storymaps.arcgis.com/stories/2017b2296b7b4263afb622fe4cb5bd32" title="Extending the Node-Place Model, interactive ArcGIS StoryMap" allowfullscreen allow="geolocation" loading="lazy"></iframe>
+        </div>
+        <a class="t-sm-cover" href="https://storymaps.arcgis.com/stories/2017b2296b7b4263afb622fe4cb5bd32" target="_blank" rel="noopener">
+          <img data-img="storymap-cover" alt="Title screen of the thesis StoryMap" loading="lazy">
+          <span class="ph"><b>Extending the Node-Place Model</b><small>Interactive ArcGIS StoryMap</small></span>
+          <span class="go">Open the StoryMap ↗</span>
+        </a>
+      </div>
     </div>
   </section>
 
@@ -795,7 +842,7 @@ button.stn:focus-visible { outline:2px solid var(--accent); outline-offset:2px; 
       <dl class="t-credits">
         <div><dt>Author</dt><dd>Urvi Patel</dd></div>
         <div><dt>Co-authors</dt><dd>Dr. Peng Du (thesis advisor), Irene Amankwah Bonsu</dd></div>
-        <div><dt>Institution</dt><dd>Thomas Jefferson University, Master of Urban Design, Future Cities</dd></div>
+        <div><dt>Institution</dt><dd>Thomas Jefferson University, Master of Urban Design – Future Cities</dd></div>
         <div><dt>Analysis</dt><dd>50 SEPTA rapid-transit stations, 20 measures across four dimensions, half-mile catchments, min-max normalised and equally weighted. Maps by the author in ArcGIS Pro. Street views: Google Street View.</dd></div>
       </dl>
     </div>
@@ -1066,6 +1113,21 @@ button.stn:focus-visible { outline:2px solid var(--accent); outline-offset:2px; 
     var btn = document.getElementById('slidesBtn');
     if (!btn || !window.fetch) return;
     fetch(btn.getAttribute('href'), { method: 'HEAD' }).then(function (r) { if (r.ok) btn.hidden = false; }).catch(function () {});
+  })();
+
+  /* StoryMap preview: only load the embedded StoryMap on larger screens (phones get the cover + link) */
+  (function () {
+    var f = document.querySelector('.t-sm-frame iframe');
+    if (!f) return;
+    var wide = window.matchMedia('(min-width: 801px)');
+    function load() { if (wide.matches && !f.src) f.src = f.getAttribute('data-src'); }
+    if (wide.addEventListener) wide.addEventListener('change', load);
+    load();
+    var cover = document.querySelector('.t-sm-cover img'), ph = document.querySelector('.t-sm-cover .ph');
+    if (cover && ph) {
+      var check = setInterval(function () { if (cover.complete && cover.naturalWidth) { ph.style.display = 'none'; clearInterval(check); } }, 400);
+      setTimeout(function () { clearInterval(check); }, 15000);
+    }
   })();
 </script>
 </body>

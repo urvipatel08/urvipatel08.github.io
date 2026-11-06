@@ -762,3 +762,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 @media (max-width: 800px) {
   .hero::after { background: rgba(250,249,246,0.74); }
 }
+
+/* ---------- Card with two buttons (thesis: View Thesis + View StoryMap) ---------- */
+.card-actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+.card-actions .btn { align-self: auto; }
